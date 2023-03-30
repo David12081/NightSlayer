@@ -1,1 +1,2 @@
-Rules\auto tile rules.tmx
+Rules\autoGroundForest.tmx
+Rules\autoForegroundForest.tmx
