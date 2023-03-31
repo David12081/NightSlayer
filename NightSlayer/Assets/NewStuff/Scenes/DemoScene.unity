@@ -123,20 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &13
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6323719954925341360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b56deda9fd8394ba703d82ca4ac424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitbox: {fileID: 7704234715999558161}
-  Hiteffect: {fileID: 1518655715659774, guid: 7d91db3260583a04884fd1d5b635bb70, type: 3}
 --- !u!1 &269240981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,8 +1398,8 @@ GameObject:
   - component: {fileID: 9117128348976089001}
   - component: {fileID: 8942925491281179525}
   - component: {fileID: 9117128348976089000}
-  - component: {fileID: 13}
   - component: {fileID: 9117128348976088999}
+  - component: {fileID: 9117128348976089002}
   m_Layer: 0
   m_Name: HeroKnight
   m_TagString: Player
@@ -1548,3 +1534,17 @@ CapsuleCollider2D:
   m_Offset: {x: -0.020413667, y: 0.6602988}
   m_Size: {x: 0.50190645, y: 1.2021811}
   m_Direction: 0
+--- !u!114 &9117128348976089002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6323719954925341360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b56deda9fd8394ba703d82ca4ac424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitbox: {fileID: 7704234715999558161}
+  Hiteffect: {fileID: 1518655715659774, guid: 7d91db3260583a04884fd1d5b635bb70, type: 3}
