@@ -1398,8 +1398,8 @@ GameObject:
   - component: {fileID: 9117128348976089001}
   - component: {fileID: 8942925491281179525}
   - component: {fileID: 9117128348976089000}
-  - component: {fileID: 9117128348976088999}
   - component: {fileID: 9117128348976089002}
+  - component: {fileID: 9117128348976088999}
   m_Layer: 0
   m_Name: HeroKnight
   m_TagString: Player
@@ -1516,8 +1516,10 @@ MonoBehaviour:
   m_speed: 4
   m_jumpForce: 24
   m_rollForce: 6
+  m_dashAttackForce: 50
   m_animator: {fileID: 2655505058970840599}
   m_body2d: {fileID: 8942925491281179525}
+  m_running: 0
 --- !u!70 &9117128348976089001
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1548,3 +1550,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitbox: {fileID: 7704234715999558161}
   Hiteffect: {fileID: 1518655715659774, guid: 7d91db3260583a04884fd1d5b635bb70, type: 3}
+  playerScript: {fileID: 9117128348976089000}
