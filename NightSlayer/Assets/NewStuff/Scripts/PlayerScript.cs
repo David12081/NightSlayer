@@ -35,20 +35,11 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        if (m_dashAttacking)
-            m_dashAttackCurrentTime += Time.deltaTime;
-
-        if (m_dashAttackCurrentTime > m_dashAttackDuration)
-        {
-            m_dashAttackCurrentTime = 0f;
-            m_dashAttacking = false;
-        }
-
         if (Input.GetKeyDown(KeyCode.D))
         {
             float timeSinceLastTap = Time.time - m_lastTapTime;
 
-            if(timeSinceLastTap <= DOUBLE_TAP_TIME)
+            if (timeSinceLastTap <= DOUBLE_TAP_TIME)
             {
                 m_doubleTap = true;
             }
@@ -59,11 +50,11 @@ public class PlayerScript : MonoBehaviour
             m_lastTapTime = Time.time;
         }
 
-        if(Input.GetKey(KeyCode.D) && m_doubleTap)
+        if (Input.GetKey(KeyCode.D) && m_doubleTap)
         {
             m_running = true;
         }
-        else if(Input.GetKeyUp(KeyCode.D) && m_doubleTap)
+        else if (Input.GetKeyUp(KeyCode.D) && m_doubleTap)
         {
             m_running = false;
         }
@@ -98,7 +89,6 @@ public class PlayerScript : MonoBehaviour
         {
             m_speed = 6.0f;
         }
-
         else
         {
             m_speed = 4.0f;
@@ -197,13 +187,22 @@ public class PlayerScript : MonoBehaviour
         {
             Jump();
         }
-    }
 
-    private void FixedUpdate()
-    {
-        if (Input.GetMouseButtonDown(0) && !m_rolling && m_running)
+        if (m_running)
         {
-            DashAttack();
+            if (Input.GetMouseButtonDown(0) && !m_dashAttacking && !m_rolling)
+            {
+                DashAttack();
+            }
+        }
+
+        if (m_dashAttacking)
+            m_dashAttackCurrentTime += Time.fixedDeltaTime;
+
+        if (m_dashAttackCurrentTime > m_dashAttackDuration)
+        {
+            m_dashAttackCurrentTime = 0f;
+            m_dashAttacking = false;
         }
     }
 
