@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -11,8 +12,12 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] Animator m_animator;
     [SerializeField] Rigidbody2D m_body2d;
-    private Sensor_HeroKnight m_groundSensor;
+
+    [SerializeField] private LayerMask m_WhatIsGround;
+    [SerializeField] private Transform m_GroundCheck;
+    const float k_GroundedRadius = 0.2f;
     private bool m_grounded = false;
+
     private bool m_rolling = false;
     private int m_facingDirection = 1;
     private float m_delayToIdle = 0.0f;
@@ -28,9 +33,15 @@ public class PlayerScript : MonoBehaviour
     private float m_dashAttackCurrentTime;
     private bool m_dashAttacking = false;
 
-    void Start()
+    [Header("Events")]
+    [Space]
+
+    public UnityEvent OnLandEvent;
+
+    private void Awake()
     {
-        m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_HeroKnight>();
+        if (OnLandEvent == null)
+            OnLandEvent = new UnityEvent();
     }
 
     void Update()
@@ -87,11 +98,11 @@ public class PlayerScript : MonoBehaviour
 
         if (m_running)
         {
-            m_speed = 6.0f;
+            m_speed = 12.0f;
         }
         else
         {
-            m_speed = 4.0f;
+            m_speed = 8.0f;
         }
 
         // Increase timer that checks roll duration
@@ -105,19 +116,7 @@ public class PlayerScript : MonoBehaviour
             m_rolling = false;
         }
 
-        //Check if character just landed on the ground
-        if (!m_grounded && m_groundSensor.State())
-        {
-            m_grounded = true;
-            m_animator.SetBool("Grounded", m_grounded);
-        }
-
-        //Check if character just started falling
-        if (m_grounded && !m_groundSensor.State())
-        {
-            m_grounded = false;
-            m_animator.SetBool("Grounded", m_grounded);
-        }
+        m_animator.SetBool("Grounded", m_grounded);
 
         // -- Handle input and movement --
         m_inputX = Input.GetAxis("Horizontal");
@@ -206,6 +205,26 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        bool wasGrounded = m_grounded;
+        m_grounded = false;
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject != gameObject)
+            {
+                m_grounded = true;
+
+                if (!wasGrounded)
+                {
+                    OnLandEvent.Invoke();
+                }
+            }
+        }
+    }
+
     void Move()
     {
         m_body2d.velocity = new Vector2(m_inputX * m_speed, m_body2d.velocity.y);
@@ -224,7 +243,6 @@ public class PlayerScript : MonoBehaviour
         m_grounded = false;
         m_animator.SetBool("Grounded", m_grounded);
         m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-        m_groundSensor.Disable(0.2f);
     }
 
     void DashAttack()
