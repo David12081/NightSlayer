@@ -9,6 +9,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float m_jumpForce = 7.5f;
     [SerializeField] float m_rollForce = 6.0f;
 
+    [SerializeField] float m_coyoteTime;
+    float m_coyoteTimeCounter;
+
     [SerializeField] Animator m_animator;
     [SerializeField] Rigidbody2D m_body2d;
     [SerializeField] GameObject m_hitCollider;
@@ -211,9 +214,10 @@ public class PlayerScript : MonoBehaviour
             Roll();
         }
 
-        if (Input.GetKeyDown("space") && m_grounded && !m_rolling)
+        if (Input.GetKeyDown("space") && (m_coyoteTimeCounter > 0) && !m_rolling)
         {
             Jump();
+            m_coyoteTimeCounter = 0f;
         }
 
         if (m_running)
@@ -222,6 +226,15 @@ public class PlayerScript : MonoBehaviour
             {
                 StartCoroutine(Dash());
             }
+        }
+
+        if (m_grounded)
+        {
+            m_coyoteTimeCounter = m_coyoteTime;
+        }
+        else
+        {
+            m_coyoteTimeCounter -= Time.deltaTime;
         }
     }
 

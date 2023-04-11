@@ -13,6 +13,7 @@ public class GroundEntryState : MeleeBaseState
         attackDamage = 5;
         knockbackForceX = 3;
         knockbackForceY = 10;
+        camShakeIntensity = 0.1f;
         duration = 0.5f;
         animator.SetTrigger("Attack" + attackIndex);
     }

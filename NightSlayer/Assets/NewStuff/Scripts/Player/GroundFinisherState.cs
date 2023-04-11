@@ -13,6 +13,7 @@ public class GroundFinisherState : MeleeBaseState
         attackDamage = 15;
         knockbackForceX = 10;
         knockbackForceY = 15;
+        camShakeIntensity = 5f;
         duration = 0.5f;
         animator.SetTrigger("Attack" + attackIndex);
     }

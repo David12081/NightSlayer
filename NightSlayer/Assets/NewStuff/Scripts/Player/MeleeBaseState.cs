@@ -12,13 +12,16 @@ public class MeleeBaseState : State
     protected bool shouldCombo;
     // The attack index in the sequence of attacks
     protected int attackIndex;
+
     // The attack damage in the sequence of attacks
     protected int attackDamage;
-    // The attack knockback force in the sequence of attacks
+    // The attack X-axis knockback force in the sequence of attacks
     protected int knockbackForceX;
-    // The attack knockback force in the sequence of attacks
+    // The attack Y-axis knockback force in the sequence of attacks
     protected int knockbackForceY;
 
+    // The attack Y-axis knockback force in the sequence of attacks
+    protected float camShakeIntensity;
 
     // The cached hit collider component of this attack
     protected Collider2D hitCollider;
@@ -84,6 +87,10 @@ public class MeleeBaseState : State
                 {
                     hitHealthSystem.ReceiveDamage(attackDamage);
                     hitHealthSystem.Knockback(animator.transform, knockbackForceX, knockbackForceY);
+
+                    CinemachineShake.Instance.ShakeCamera(camShakeIntensity, 0.1f);
+
+                    HitStopController.Instance.Stop(0.1f);
 
                     GameObject.Instantiate(HitEffectPrefab, collidersToDamage[i].transform);
                     Debug.Log("Enemy Has Taken: " + attackDamage + " Damage");
