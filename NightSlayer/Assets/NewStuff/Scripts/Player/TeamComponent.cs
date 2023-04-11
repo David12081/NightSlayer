@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public enum TeamIndex : sbyte
 {
     None = -1,
@@ -11,7 +10,6 @@ public enum TeamIndex : sbyte
     Enemy,
     Count
 }
-
 
 public class TeamComponent : MonoBehaviour
 {
@@ -24,10 +22,7 @@ public class TeamComponent : MonoBehaviour
             {
                 return;
             }
-
             _teamIndex = value;
-
-           
         }
         get { return _teamIndex; }
     }

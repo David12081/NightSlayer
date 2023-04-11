@@ -8,15 +8,20 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_jumpForce = 7.5f;
     [SerializeField] float m_rollForce = 6.0f;
-    [SerializeField] float m_dashAttackForce = 100f;
 
     [SerializeField] Animator m_animator;
     [SerializeField] Rigidbody2D m_body2d;
+    [SerializeField] GameObject m_hitCollider;
 
     [SerializeField] private LayerMask m_WhatIsGround;
     [SerializeField] private Transform m_GroundCheck;
     const float k_GroundedRadius = 0.2f;
     private bool m_grounded = false;
+    public bool Grounded
+    {
+        get => m_grounded;
+        set => m_grounded = value;
+    }
 
     private bool m_rolling = false;
     private int m_facingDirection = 1;
@@ -26,12 +31,32 @@ public class PlayerScript : MonoBehaviour
     private float m_inputX;
 
     private float m_lastTapTime;
-    public bool m_running;
     private bool m_doubleTap;
     private const float DOUBLE_TAP_TIME = 0.2f;
-    private float m_dashAttackDuration = 0.5f;
-    private float m_dashAttackCurrentTime;
-    private bool m_dashAttacking = false;
+    private bool m_running;
+    public bool Running
+    {
+        get => m_running;
+        set => m_running = value;
+    }
+
+    [SerializeField] private float m_dashVelocity;
+    [SerializeField] private float m_dashTime;
+    private float m_initialGravity;
+
+    private bool m_canDash = true;
+    public bool CanDash
+    {
+        get => m_canDash;
+        set => m_canDash = value;
+    }
+
+    private bool m_canMove = true;
+    public bool CanMove
+    {
+        get => m_canMove;
+        set => m_canMove = value;
+    }
 
     [Header("Events")]
     [Space]
@@ -42,6 +67,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
+
+        m_initialGravity = m_body2d.gravityScale;
     }
 
     void Update()
@@ -126,12 +153,14 @@ public class PlayerScript : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = false;
             m_facingDirection = 1;
+            m_hitCollider.transform.localPosition = new Vector3(2f, m_hitCollider.transform.localPosition.y, m_hitCollider.transform.localPosition.z);
         }
 
         else if (m_inputX < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
             m_facingDirection = -1;
+            m_hitCollider.transform.localPosition = new Vector3(-2f, m_hitCollider.transform.localPosition.y, m_hitCollider.transform.localPosition.z);
         }
 
         //Set AirSpeed in animator
@@ -174,7 +203,7 @@ public class PlayerScript : MonoBehaviour
                 m_animator.SetInteger("AnimState", 0);
         }
 
-        if (!m_rolling)
+        if (!m_rolling && m_canMove)
             Move();
 
         if (Input.GetKeyDown("left shift") && !m_rolling)
@@ -189,19 +218,10 @@ public class PlayerScript : MonoBehaviour
 
         if (m_running)
         {
-            if (Input.GetMouseButtonDown(0) && !m_dashAttacking && !m_rolling)
+            if (Input.GetMouseButtonDown(0) && !m_rolling && m_canDash && m_grounded)
             {
-                DashAttack();
+                StartCoroutine(Dash());
             }
-        }
-
-        if (m_dashAttacking)
-            m_dashAttackCurrentTime += Time.fixedDeltaTime;
-
-        if (m_dashAttackCurrentTime > m_dashAttackDuration)
-        {
-            m_dashAttackCurrentTime = 0f;
-            m_dashAttacking = false;
         }
     }
 
@@ -245,9 +265,21 @@ public class PlayerScript : MonoBehaviour
         m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
     }
 
-    void DashAttack()
+    IEnumerator Dash()
     {
-        m_dashAttacking = true;
-        m_body2d.velocity = transform.right * m_facingDirection * m_dashAttackForce;
+        m_canMove = false;
+        m_canDash = false;
+
+        m_body2d.gravityScale = 0f;
+        m_body2d.velocity = new Vector2(m_dashVelocity * m_facingDirection, 0f);
+
+        yield return new WaitForSeconds(m_dashTime);
+        m_canMove = true;
+
+        m_body2d.gravityScale = m_initialGravity;
+
+        yield return new WaitForSeconds(1f);
+
+        m_canDash = true;
     }
 }

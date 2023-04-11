@@ -18,12 +18,12 @@ public class ComboCharacter : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && !playerScript.m_running && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+        if (Input.GetMouseButton(0) && !playerScript.Running && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
             meleeStateMachine.SetNextState(new GroundEntryState());
         }
 
-        else if (Input.GetMouseButton(0) && playerScript.m_running && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+        else if (Input.GetMouseButton(0) && playerScript.CanDash && playerScript.Grounded && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
             meleeStateMachine.SetNextState(new GroundDashAttackState());
         }

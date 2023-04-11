@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundEntryState : MeleeBaseState
+public class GroundComboState : MeleeBaseState
 {
     public override void OnEnter(StateMachine _stateMachine)
     {
         base.OnEnter(_stateMachine);
 
         //Attack
-        attackIndex = 1;
+        attackIndex = 2;
+        attackDamage = 10;
+        knockbackForceX = 3;
+        knockbackForceY = 10;
         duration = 0.5f;
         animator.SetTrigger("Attack" + attackIndex);
-        Debug.Log("Player Attack " + attackIndex + " Fired!");
     }
 
     public override void OnUpdate()
@@ -23,7 +25,7 @@ public class GroundEntryState : MeleeBaseState
         {
             if (shouldCombo)
             {
-                stateMachine.SetNextState(new GroundComboState());
+                stateMachine.SetNextState(new GroundFinisherState());
             }
             else
             {

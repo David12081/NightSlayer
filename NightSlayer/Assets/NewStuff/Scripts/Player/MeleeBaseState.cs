@@ -12,7 +12,12 @@ public class MeleeBaseState : State
     protected bool shouldCombo;
     // The attack index in the sequence of attacks
     protected int attackIndex;
-
+    // The attack damage in the sequence of attacks
+    protected int attackDamage;
+    // The attack knockback force in the sequence of attacks
+    protected int knockbackForceX;
+    // The attack knockback force in the sequence of attacks
+    protected int knockbackForceY;
 
 
     // The cached hit collider component of this attack
@@ -69,16 +74,19 @@ public class MeleeBaseState : State
         int colliderCount = Physics2D.OverlapCollider(hitCollider, filter, collidersToDamage);
         for (int i = 0; i < colliderCount; i++)
         {
-
             if (!collidersDamaged.Contains(collidersToDamage[i]))
             {
                 TeamComponent hitTeamComponent = collidersToDamage[i].GetComponentInChildren<TeamComponent>();
+                HealthSystem hitHealthSystem = collidersToDamage[i].GetComponentInChildren<HealthSystem>();
 
                 // Only check colliders with a valid Team Componnent attached
                 if (hitTeamComponent && hitTeamComponent.teamIndex == TeamIndex.Enemy)
                 {
+                    hitHealthSystem.ReceiveDamage(attackDamage);
+                    hitHealthSystem.Knockback(animator.transform, knockbackForceX, knockbackForceY);
+
                     GameObject.Instantiate(HitEffectPrefab, collidersToDamage[i].transform);
-                    Debug.Log("Enemy Has Taken:" + attackIndex + "Damage");
+                    Debug.Log("Enemy Has Taken: " + attackDamage + " Damage");
                     collidersDamaged.Add(collidersToDamage[i]);
                 }
             }

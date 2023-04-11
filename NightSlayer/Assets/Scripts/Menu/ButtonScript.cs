@@ -46,8 +46,8 @@ public class ButtonScript : MonoBehaviour
         if(!File.Exists(saveLoadSystem.SavePath))
         {
             saveLoadSystem.DeleteSaveFile();
-            GoToScene("Level1");
-            PlayerPrefs.SetString("SavedLevel", "Level1");
+            GoToScene("Test");
+            PlayerPrefs.SetString("SavedLevel", "Test");
             AudioManager.instance.ChangeMusic(AudioManager.instance.clips[1]);
         }
         else
