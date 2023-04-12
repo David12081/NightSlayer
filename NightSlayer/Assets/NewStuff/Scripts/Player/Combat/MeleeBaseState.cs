@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -51,7 +50,6 @@ public class MeleeBaseState : State
         {
             Attack();
         }
-
 
         if (Input.GetMouseButtonDown(0))
         {

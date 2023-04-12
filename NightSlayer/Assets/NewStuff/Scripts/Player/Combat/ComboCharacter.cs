@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class ComboCharacter : MonoBehaviour
 {
-
-    private StateMachine meleeStateMachine;
+    [SerializeField] private StateMachine meleeStateMachine;
 
     public Collider2D hitbox;
     public GameObject Hiteffect;
     [SerializeField] private PlayerScript playerScript;
-
-    void Start()
-    {
-        meleeStateMachine = GetComponent<StateMachine>();
-    }
 
     void Update()
     {

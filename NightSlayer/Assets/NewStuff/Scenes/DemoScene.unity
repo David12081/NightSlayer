@@ -484,6 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b56deda9fd8394ba703d82ca4ac424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meleeStateMachine: {fileID: 709544843}
   hitbox: {fileID: 1325191525}
   Hiteffect: {fileID: 1518655715659774, guid: 7d91db3260583a04884fd1d5b635bb70, type: 3}
   playerScript: {fileID: 709544845}
