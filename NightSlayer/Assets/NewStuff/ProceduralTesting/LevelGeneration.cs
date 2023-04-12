@@ -51,7 +51,7 @@ public class LevelGeneration : MonoBehaviour
 
     void Move()
     {
-        if(direction == 1 || direction == 2)
+        if(direction == 1 || direction == 2) // Move RIGHT
         {
             if(transform.position.x < maxX)
             {
@@ -78,7 +78,7 @@ public class LevelGeneration : MonoBehaviour
                 direction = 5;
             }
         }
-        else if(direction == 3 || direction == 4)
+        else if(direction == 3 || direction == 4) // Move LEFT
         {
             if (transform.position.x > minX)
             {
@@ -97,7 +97,7 @@ public class LevelGeneration : MonoBehaviour
                 direction = 5;
             }
         }
-        else if(direction == 5)
+        else if(direction == 5) // Move DOWN
         {
             downCounter++;
             
