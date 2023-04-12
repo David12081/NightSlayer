@@ -5,10 +5,10 @@ using UnityEngine;
 public class ComboCharacter : MonoBehaviour
 {
     [SerializeField] private StateMachine meleeStateMachine;
+    [SerializeField] private PlayerScript playerScript;
 
     public Collider2D hitbox;
     public GameObject Hiteffect;
-    [SerializeField] private PlayerScript playerScript;
 
     void Update()
     {

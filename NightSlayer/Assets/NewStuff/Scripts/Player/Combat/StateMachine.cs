@@ -9,6 +9,11 @@ public class StateMachine : MonoBehaviour
     public State CurrentState { get; private set; }
     private State nextState;
 
+    private void Awake()
+    {
+        SetNextStateToMain();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -56,12 +61,6 @@ public class StateMachine : MonoBehaviour
     {
         nextState = mainStateType;
     }
-
-    private void Awake()
-    {
-        SetNextStateToMain();
-    }
-
 
     private void OnValidate()
     {
