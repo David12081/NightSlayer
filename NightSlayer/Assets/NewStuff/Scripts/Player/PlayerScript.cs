@@ -283,10 +283,9 @@ public class PlayerScript : MonoBehaviour
     IEnumerator Dash()
     {
         m_canMove = false;
-        m_canDash = false;
-
         m_body2d.gravityScale = 0f;
         m_body2d.velocity = new Vector2(m_dashVelocity * m_facingDirection, 0f);
+        m_canDash = false;
 
         yield return new WaitForSeconds(m_dashTime);
         m_canMove = true;

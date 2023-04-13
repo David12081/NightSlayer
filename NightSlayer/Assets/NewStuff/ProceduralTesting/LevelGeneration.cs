@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class LevelGeneration : MonoBehaviour
 {
     [SerializeField] private Transform[] startingPositions;
     [SerializeField] private GameObject[] rooms; // index 0 -> LR, index 1 -> LRB, index 2 -> LRT, index 3 -> LRTB
+
+    public List<GameObject> spawnedRooms;
 
     private int direction;
     [SerializeField] private float moveAmountX;
@@ -28,13 +32,15 @@ public class LevelGeneration : MonoBehaviour
 
     private int downCounter;
 
+    [SerializeField] private GameObject[] prefabs;
+
     private void Start()
     {
         int randStartingPos = Random.Range(0, startingPositions.Length);
         transform.position = startingPositions[randStartingPos].position;
         Instantiate(rooms[0], transform.position, Quaternion.identity);
 
-        direction = Random.Range(1, 8);
+        direction = Random.Range(1, 6);
     }
 
     private void Update()
@@ -48,11 +54,32 @@ public class LevelGeneration : MonoBehaviour
         {
             timeBtwRoom -= Time.deltaTime;
         }
+
+        if(stopGeneration)
+        {
+            for (int i = 0; i < spawnedRooms.Count; i++)
+            {
+                if (spawnedRooms[i] == null)
+                {
+                    spawnedRooms.RemoveAt(i);
+                }
+            }
+            StartCoroutine(SpawnPrefabs());
+        }
+    }
+
+    IEnumerator SpawnPrefabs()
+    {
+        yield return new WaitForSeconds(1f);
+        Instantiate(prefabs[0], spawnedRooms[0].transform.position, Quaternion.identity);
+        Instantiate(prefabs[1], spawnedRooms[0].transform.position, Quaternion.identity);
+        Instantiate(prefabs[2], spawnedRooms[0].transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 
     void Move()
     {
-        if(direction == 1 || direction == 2 || direction == 3) // Move RIGHT
+        if(direction == 1 || direction == 2) // Move RIGHT
         {
             if(transform.position.x < maxX)
             {
@@ -64,22 +91,22 @@ public class LevelGeneration : MonoBehaviour
                 int rand = Random.Range(0, rooms.Length);
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
 
-                direction = Random.Range(1, 8);
-                if(direction == 4)
+                direction = Random.Range(1, 6);
+                if(direction == 3)
                 {
-                    direction = 3;
+                    direction = 2;
                 }
-                else if(direction == 6)
+                else if(direction == 4)
                 {
-                    direction = 7;
+                    direction = 5;
                 }
             }
             else
             {
-                direction = 7;
+                direction = 5;
             }
         }
-        else if(direction == 4 || direction == 5 || direction == 6) // Move LEFT
+        else if(direction == 3 || direction == 4) // Move LEFT
         {
             if (transform.position.x > minX)
             {
@@ -91,14 +118,14 @@ public class LevelGeneration : MonoBehaviour
                 int rand = Random.Range(0, rooms.Length);
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
 
-                direction = Random.Range(4, 8);
+                direction = Random.Range(3, 6);
             }
             else
             {
-                direction = 7;
+                direction = 5;
             }
         }
-        else if(direction == 7) // Move DOWN
+        else if(direction == 5) // Move DOWN
         {
             downCounter++;
             
@@ -131,7 +158,7 @@ public class LevelGeneration : MonoBehaviour
                 int rand = Random.Range(2, 4);
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
 
-                direction = Random.Range(1, 8);
+                direction = Random.Range(1, 6);
             }
             else
             {

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpawnRoom : MonoBehaviour
 {
-    public LayerMask room;
-    public LevelGeneration levelGeneration;
+    [SerializeField] LayerMask room;
+    [SerializeField] LevelGeneration levelGeneration;
     [SerializeField] GameObject roomClosed;
     
     void Update()

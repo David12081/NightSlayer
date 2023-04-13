@@ -8,6 +8,7 @@ public class CinemachineShake : MonoBehaviour
     public static CinemachineShake Instance { get; private set; }
     
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
+    [SerializeField] private CinemachineConfiner cinemachineConfiner;
     private float shakeTimer;
     private float shakeTimerTotal;
     private float startIntensity;
@@ -15,6 +16,18 @@ public class CinemachineShake : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(AssignVariables());
+    }
+
+    IEnumerator AssignVariables()
+    {
+        yield return new WaitForSeconds(0.5f);
+        cinemachineVirtualCamera.m_Follow = GameObject.Find("HeroKnight(Clone)").transform;
+        cinemachineConfiner.m_BoundingShape2D = GameObject.Find("CinemachineConfiner(Clone)").GetComponent<Collider2D>();
     }
 
     public void ShakeCamera(float intensity, float time)

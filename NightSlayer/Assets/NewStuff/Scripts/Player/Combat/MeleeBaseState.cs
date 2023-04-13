@@ -8,7 +8,7 @@ public class MeleeBaseState : State
     // Cached animator component
     protected Animator animator;
     // bool to check whether or not the next attack in the sequence should be played or not
-    protected bool shouldCombo;
+    protected bool shouldCombo = false;
     // The attack index in the sequence of attacks
     protected int attackIndex;
 

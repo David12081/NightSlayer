@@ -11,7 +11,8 @@ public class StateMachine : MonoBehaviour
 
     private void Awake()
     {
-        SetNextStateToMain();
+        SetState(new IdleCombatState());
+        mainStateType = new IdleCombatState();
     }
 
     // Update is called once per frame
