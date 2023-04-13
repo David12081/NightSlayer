@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
-    public Transform[] startingPositions;
-    public GameObject[] rooms; // index 0 -> LR, index 1 -> LRB, index 2 -> LRT, index 3 -> LRTB
+    [SerializeField] private Transform[] startingPositions;
+    [SerializeField] private GameObject[] rooms; // index 0 -> LR, index 1 -> LRB, index 2 -> LRT, index 3 -> LRTB
 
     private int direction;
-    public float moveAmount;
+    [SerializeField] private float moveAmountX;
+    [SerializeField] private float moveAmountY;
 
     private float timeBtwRoom;
-    public float startTimeBtwRoom = 0.25f;
+    [SerializeField] private float startTimeBtwRoom = 0.25f;
 
-    public float minX;
-    public float maxX;
-    public float minY;
-    public bool stopGeneration;
+    [SerializeField] private float minX;
+    [SerializeField] private float maxX;
+    [SerializeField] private float minY;
+    private bool stopGeneration;
+    public bool StopGeneration
+    {
+        get => stopGeneration;
+        set => stopGeneration = value;
+    }
 
-    public LayerMask room;
+    [SerializeField] private LayerMask room;
 
     private int downCounter;
 
@@ -28,7 +34,7 @@ public class LevelGeneration : MonoBehaviour
         transform.position = startingPositions[randStartingPos].position;
         Instantiate(rooms[0], transform.position, Quaternion.identity);
 
-        direction = Random.Range(1, 6);
+        direction = Random.Range(1, 8);
     }
 
     private void Update()
@@ -42,62 +48,57 @@ public class LevelGeneration : MonoBehaviour
         {
             timeBtwRoom -= Time.deltaTime;
         }
-
-        if(stopGeneration == true)
-        {
-            Destroy(gameObject);
-        }
     }
 
     void Move()
     {
-        if(direction == 1 || direction == 2) // Move RIGHT
+        if(direction == 1 || direction == 2 || direction == 3) // Move RIGHT
         {
             if(transform.position.x < maxX)
             {
                 downCounter = 0;
 
-                Vector2 newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                Vector2 newPos = new Vector2(transform.position.x + moveAmountX, transform.position.y);
                 transform.position = newPos;
 
                 int rand = Random.Range(0, rooms.Length);
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
 
-                direction = Random.Range(1, 6);
-                if(direction == 3)
+                direction = Random.Range(1, 8);
+                if(direction == 4)
                 {
-                    direction = 2;
+                    direction = 3;
                 }
-                else if(direction == 4)
+                else if(direction == 6)
                 {
-                    direction = 5;
+                    direction = 7;
                 }
             }
             else
             {
-                direction = 5;
+                direction = 7;
             }
         }
-        else if(direction == 3 || direction == 4) // Move LEFT
+        else if(direction == 4 || direction == 5 || direction == 6) // Move LEFT
         {
             if (transform.position.x > minX)
             {
                 downCounter = 0;
 
-                Vector2 newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                Vector2 newPos = new Vector2(transform.position.x - moveAmountX, transform.position.y);
                 transform.position = newPos;
 
                 int rand = Random.Range(0, rooms.Length);
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
 
-                direction = Random.Range(3, 6);
+                direction = Random.Range(4, 8);
             }
             else
             {
-                direction = 5;
+                direction = 7;
             }
         }
-        else if(direction == 5) // Move DOWN
+        else if(direction == 7) // Move DOWN
         {
             downCounter++;
             
@@ -124,13 +125,13 @@ public class LevelGeneration : MonoBehaviour
                     }
                 }
                 
-                Vector2 newPos = new Vector2(transform.position.x, transform.position.y - moveAmount);
+                Vector2 newPos = new Vector2(transform.position.x, transform.position.y - moveAmountY);
                 transform.position = newPos;
 
                 int rand = Random.Range(2, 4);
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
 
-                direction = Random.Range(1, 6);
+                direction = Random.Range(1, 8);
             }
             else
             {

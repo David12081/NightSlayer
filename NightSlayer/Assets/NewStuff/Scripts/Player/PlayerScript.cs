@@ -72,6 +72,8 @@ public class PlayerScript : MonoBehaviour
             OnLandEvent = new UnityEvent();
 
         m_initialGravity = m_body2d.gravityScale;
+
+        m_running = false;
     }
 
     void Update()

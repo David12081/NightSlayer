@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 709544845}
   - component: {fileID: 709544844}
   - component: {fileID: 709544843}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HeroKnight
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -485,9 +485,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeStateMachine: {fileID: 709544843}
+  playerScript: {fileID: 709544845}
   hitbox: {fileID: 1325191525}
   Hiteffect: {fileID: 1518655715659774, guid: 7d91db3260583a04884fd1d5b635bb70, type: 3}
-  playerScript: {fileID: 709544845}
 --- !u!114 &709544845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,8 +611,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -103830301
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ae297123f091bbf4e8f1835eb98fb293, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -757,9 +757,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingLayerID: 1224353067
+  m_SortingLayer: -3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 33dccf83b7f7f294992c97ebe1990464, type: 3}
   m_Color: {r: 0.03529412, g: 0.28627452, b: 0.42352945, a: 1}
   m_FlipX: 0
@@ -842,8 +842,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -14759031
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1430,6 +1430,7 @@ GameObject:
   - component: {fileID: 1463474979}
   - component: {fileID: 1463474981}
   - component: {fileID: 1463474980}
+  - component: {fileID: 1463474982}
   m_Layer: 6
   m_Name: PlatformCollider
   m_TagString: Untagged
@@ -1497,6 +1498,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.44, y: 0.21}
   m_EdgeRadius: 0
+--- !u!114 &1463474982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463474978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197883214f32dcc48a035bef241b2151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 1463474981}
+  _playerCollider: {fileID: 709544847}
 --- !u!1 &1499007962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,7 +1526,7 @@ GameObject:
   - component: {fileID: 1499007965}
   - component: {fileID: 1499007964}
   - component: {fileID: 1499007963}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: STRAW_DUMMY_VER_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1646,8 +1661,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -103830301
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e821634f2d2de164a8db16d3770fe986, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1668,7 +1683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499007962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.36, y: -0.18, z: 0}
+  m_LocalPosition: {x: -5.91, y: 3.58, z: 0}
   m_LocalScale: {x: 0.6215734, y: 0.6215734, z: 0.6215734}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1712,7 +1727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557982495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.4349995, y: 5.210761, z: -0.16858163}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -11,12 +11,12 @@ public class SpawnRoom : MonoBehaviour
     void Update()
     {
         Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1, room);
-        if(roomDetection == null && levelGeneration.stopGeneration == true)
+        if(roomDetection == null && levelGeneration.StopGeneration == true)
         {
             Instantiate(roomClosed, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        else if(roomDetection != null && levelGeneration.stopGeneration == true)
+        else if(roomDetection != null && levelGeneration.StopGeneration == true)
         {
             Destroy(gameObject);
         }
