@@ -7,10 +7,11 @@ public class FallThroughPlatform : MonoBehaviour
     [SerializeField] private Collider2D _collider;
     [SerializeField] private Collider2D _playerCollider;
     private bool playerOnPlatform;
+    private PlayerScript playerScript;
 
     private void Update()
     {
-        if (playerOnPlatform && Input.GetAxisRaw("Vertical") < 0)
+        if (playerOnPlatform && playerScript.InputY <= -0.5f)
         {
             Physics2D.IgnoreCollision(_collider, _playerCollider, true);
             StartCoroutine(EnableCollision());
@@ -28,6 +29,7 @@ public class FallThroughPlatform : MonoBehaviour
         var player = other.gameObject.GetComponent<PlayerScript>();
         if(player != null)
         {
+            playerScript = player;
             playerOnPlatform = value;
         }
     }

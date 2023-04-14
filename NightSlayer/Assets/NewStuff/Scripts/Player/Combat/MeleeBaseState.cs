@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MeleeBaseState : State
 {
@@ -11,6 +12,9 @@ public class MeleeBaseState : State
     protected bool shouldCombo = false;
     // The attack index in the sequence of attacks
     protected int attackIndex;
+
+    protected PlayerInput playerInput;
+    protected InputAction attackAction;
 
     // The attack damage in the sequence of attacks
     protected int attackDamage;
@@ -39,6 +43,8 @@ public class MeleeBaseState : State
         collidersDamaged = new List<Collider2D>();
         hitCollider = GetComponent<ComboCharacter>().hitbox;
         HitEffectPrefab = GetComponent<ComboCharacter>().Hiteffect;
+        playerInput = GetComponent<PlayerInput>();
+        attackAction = playerInput.actions["Attack"];
     }
 
     public override void OnUpdate()
@@ -51,7 +57,7 @@ public class MeleeBaseState : State
             Attack();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (attackAction.ReadValue<float>() == 1)
         {
             AttackPressedTimer = 2;
         }

@@ -1,10 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
-
+    [SerializeField] private StateMachine meleeStateMachine;
+    [SerializeField] private PlayerInput playerInput;
+    private InputAction attackAction;
     [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_jumpForce = 7.5f;
     [SerializeField] float m_rollForce = 6.0f;
@@ -32,6 +35,12 @@ public class PlayerScript : MonoBehaviour
     private float m_rollDuration = 0.5f;
     private float m_rollCurrentTime;
     private float m_inputX;
+    private float m_inputY;
+    public float InputY
+    {
+        get => m_inputY;
+        set => m_inputY = value;
+    }
 
     private float m_lastTapTime;
     private bool m_doubleTap;
@@ -61,6 +70,8 @@ public class PlayerScript : MonoBehaviour
         set => m_canMove = value;
     }
 
+    private bool m_shielding = false;
+
     [Header("Events")]
     [Space]
 
@@ -74,60 +85,56 @@ public class PlayerScript : MonoBehaviour
         m_initialGravity = m_body2d.gravityScale;
 
         m_running = false;
+
+        attackAction = playerInput.actions["Attack"];
+    }
+
+    public void OnMoveAxis(InputAction.CallbackContext value)
+    {
+        Vector2 input = value.ReadValue<Vector2>();
+        m_inputX = input.x;
+        m_inputY = input.y;
+    }
+
+    public void OnJump(InputAction.CallbackContext value)
+    {
+        if(value.started && (m_coyoteTimeCounter > 0) && !m_rolling)
+        {
+            Jump();
+            m_coyoteTimeCounter = 0f;
+        }
+    }
+
+    public void OnSprint(InputAction.CallbackContext value)
+    {
+        if(m_inputX != 0f)
+        {
+            if(value.started)
+                m_running = true;
+        }
+    }
+
+    public void OnShield(InputAction.CallbackContext value)
+    {
+        if(value.started)
+        {
+            m_shielding = true;
+        }
+        else if(value.performed)
+        {
+            m_shielding = false;
+        }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            float timeSinceLastTap = Time.time - m_lastTapTime;
-
-            if (timeSinceLastTap <= DOUBLE_TAP_TIME)
-            {
-                m_doubleTap = true;
-            }
-            else
-            {
-                m_doubleTap = false;
-            }
-            m_lastTapTime = Time.time;
-        }
-
-        if (Input.GetKey(KeyCode.D) && m_doubleTap)
-        {
-            m_running = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.D) && m_doubleTap)
-        {
-            m_running = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            float timeSinceLastTap = Time.time - m_lastTapTime;
-
-            if (timeSinceLastTap <= DOUBLE_TAP_TIME)
-            {
-                m_doubleTap = true;
-            }
-            else
-            {
-                m_doubleTap = false;
-            }
-            m_lastTapTime = Time.time;
-        }
-
-        if (Input.GetKey(KeyCode.A) && m_doubleTap)
-        {
-            m_running = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.A) && m_doubleTap)
-        {
-            m_running = false;
-        }
-
         m_animator.SetBool("Running", m_running);
 
+        if(m_inputX == 0f)
+        {
+            m_running = false;
+        }
+        
         if (m_running)
         {
             m_speed = 12.0f;
@@ -150,18 +157,15 @@ public class PlayerScript : MonoBehaviour
 
         m_animator.SetBool("Grounded", m_grounded);
 
-        // -- Handle input and movement --
-        m_inputX = Input.GetAxis("Horizontal");
-
         // Swap direction of sprite depending on walk direction
-        if (m_inputX > 0)
+        if (m_inputX > 0f)
         {
             GetComponent<SpriteRenderer>().flipX = false;
             m_facingDirection = 1;
             m_hitCollider.transform.localPosition = new Vector3(2f, m_hitCollider.transform.localPosition.y, m_hitCollider.transform.localPosition.z);
         }
 
-        else if (m_inputX < 0)
+        else if (m_inputX < 0f)
         {
             GetComponent<SpriteRenderer>().flipX = true;
             m_facingDirection = -1;
@@ -172,27 +176,34 @@ public class PlayerScript : MonoBehaviour
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
         //Death
-        if (Input.GetKeyDown("e") && !m_rolling)
-        {
-            m_animator.SetTrigger("Death");
-        }
+        //if (Input.GetKeyDown("e") && !m_rolling)
+        //{
+        //    m_animator.SetTrigger("Death");
+        //}
 
         //Hurt
-        else if (Input.GetKeyDown("q") && !m_rolling)
-            m_animator.SetTrigger("Hurt");
+        //else if (Input.GetKeyDown("q") && !m_rolling)
+        //    m_animator.SetTrigger("Hurt");
 
         // Block
-        else if (Input.GetMouseButtonDown(1) && !m_rolling)
+        if (m_shielding && !m_rolling)
         {
-            m_animator.SetTrigger("Block");
             m_animator.SetBool("IdleBlock", true);
+            m_canMove = false;
+            if(m_inputX != 0f)
+            {
+                Roll();
+            }
         }
 
-        else if (Input.GetMouseButtonUp(1))
+        else if (!m_shielding)
+        {
+            m_canMove = true;
             m_animator.SetBool("IdleBlock", false);
+        }
 
         //Run
-        else if (Mathf.Abs(m_inputX) > Mathf.Epsilon)
+        if (Mathf.Abs(m_inputX) > Mathf.Epsilon)
         {
             // Reset timer
             m_delayToIdle = 0.05f;
@@ -211,20 +222,10 @@ public class PlayerScript : MonoBehaviour
         if (!m_rolling && m_canMove)
             Move();
 
-        if (Input.GetKeyDown("left shift") && !m_rolling)
-        {
-            Roll();
-        }
-
-        if (Input.GetKeyDown("space") && (m_coyoteTimeCounter > 0) && !m_rolling)
-        {
-            Jump();
-            m_coyoteTimeCounter = 0f;
-        }
-
         if (m_running)
         {
-            if (Input.GetMouseButtonDown(0) && !m_rolling && m_canDash && m_grounded)
+            if (attackAction.ReadValue<float>() == 1 && !m_rolling && m_canDash && m_grounded
+                && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
             {
                 StartCoroutine(Dash());
             }
@@ -267,6 +268,7 @@ public class PlayerScript : MonoBehaviour
 
     void Roll()
     {
+        m_shielding = false;
         m_rolling = true;
         m_animator.SetTrigger("Roll");
         m_body2d.velocity = transform.right * m_facingDirection * m_rollForce;
@@ -282,9 +284,10 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator Dash()
     {
+        meleeStateMachine.SetNextState(new GroundDashAttackState());
+        m_body2d.velocity = new Vector2(m_dashVelocity * m_facingDirection, 0f);
         m_canMove = false;
         m_body2d.gravityScale = 0f;
-        m_body2d.velocity = new Vector2(m_dashVelocity * m_facingDirection, 0f);
         m_canDash = false;
 
         yield return new WaitForSeconds(m_dashTime);
@@ -295,5 +298,6 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         m_canDash = true;
+        m_running = false;
     }
 }

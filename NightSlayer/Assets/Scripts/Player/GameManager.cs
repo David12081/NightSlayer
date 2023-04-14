@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     private bool isPaused;
-    private PlayerInput playerInput;
+    [SerializeField] private PlayerInput playerInput;
     public PlayerRebinds playerRebinds;
 
     private string actionMapPlayerControls = "Player";
