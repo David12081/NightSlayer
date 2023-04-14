@@ -196,7 +196,7 @@
                 {
                     "name": "",
                     "id": "af4510dc-3a00-4f55-a217-5eab4a54b3cc",
-                    "path": "<Keyboard>/q",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -218,7 +218,7 @@
                 {
                     "name": "",
                     "id": "c83ccbcb-fad6-4057-9026-dbaa9c8d1dce",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
