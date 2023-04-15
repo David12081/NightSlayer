@@ -20,7 +20,10 @@ public class CinemachineShake : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(AssignVariables());
+        if(cinemachineVirtualCamera.m_Follow == null && cinemachineConfiner.m_BoundingShape2D == null)
+        {
+            StartCoroutine(AssignVariables());
+        }   
     }
 
     IEnumerator AssignVariables()

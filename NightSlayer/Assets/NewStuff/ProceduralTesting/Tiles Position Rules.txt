@@ -1,0 +1,7 @@
+Foreground = -2.6
+Ground = 0
+Background0 = 6
+Background1 = 5
+Background2 = 4
+Background3 = 3
+Background4 = 2
