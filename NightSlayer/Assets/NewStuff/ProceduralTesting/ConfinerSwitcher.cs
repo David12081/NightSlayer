@@ -5,6 +5,7 @@ using UnityEngine;
 public class ConfinerSwitcher : MonoBehaviour
 {
     [SerializeField] PolygonCollider2D polygonCollider;
+    [SerializeField] Transform spawnPoint;
     private PlayerScript playerScript;
     private bool playerOnCollider;
 
@@ -14,6 +15,7 @@ public class ConfinerSwitcher : MonoBehaviour
         {
             CinemachineShake.Instance.cinemachineConfiner.InvalidatePathCache();
             CinemachineShake.Instance.cinemachineConfiner.m_BoundingShape2D = polygonCollider;
+            playerScript.gameObject.transform.position = spawnPoint.position;
         }
     }
 
