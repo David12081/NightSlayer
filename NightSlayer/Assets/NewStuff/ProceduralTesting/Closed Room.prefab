@@ -9107,7 +9107,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -14759031
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -9127,7 +9127,7 @@ GameObject:
   - component: {fileID: 7220245015027180558}
   - component: {fileID: 6734618922653890169}
   - component: {fileID: 3134220830954161850}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collision_Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

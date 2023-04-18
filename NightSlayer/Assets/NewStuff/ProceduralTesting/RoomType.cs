@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class RoomType : MonoBehaviour
 {
-    public int type;
+    private int type;
+    public int Type
+    {
+        get => type;
+        set => type = value;
+    }
     private LevelGeneration levelGeneration;
 
     private void Start()

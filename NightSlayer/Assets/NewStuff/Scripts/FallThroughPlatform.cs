@@ -5,7 +5,7 @@ using UnityEngine;
 public class FallThroughPlatform : MonoBehaviour
 {
     [SerializeField] private Collider2D _collider;
-    [SerializeField] private Collider2D _playerCollider;
+    private Collider2D _playerCollider;
     private bool playerOnPlatform;
     private PlayerScript playerScript;
 
@@ -31,6 +31,7 @@ public class FallThroughPlatform : MonoBehaviour
         {
             playerScript = player;
             playerOnPlatform = value;
+            _playerCollider = playerScript.GetComponent<Collider2D>();
         }
     }
 
@@ -41,6 +42,6 @@ public class FallThroughPlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        SetPlayerOnPlatform(collision, true);
+        SetPlayerOnPlatform(collision, false);
     }
 }

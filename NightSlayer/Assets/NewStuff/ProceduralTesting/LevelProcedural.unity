@@ -178,6 +178,9 @@ MonoBehaviour:
   - {fileID: 2204252416738405824, guid: 7e0ddfecf46201948a2190a0765bccbb, type: 3}
   - {fileID: 4247488274213894603, guid: 3511ec2a83183624bbad0aa3c69a59ac, type: 3}
   - {fileID: 6803388824914294013, guid: e32cdcea79db0df42a7e48e5c85d69b6, type: 3}
+  spawnableRooms:
+  - {fileID: 8266761011631743531, guid: ffd235862291e0e46b77463a0bdc9bdc, type: 3}
+  - {fileID: 2204252416738405824, guid: d7131f8decc2a28419fab04295d4c57b, type: 3}
   spawnedRooms: []
   moveAmountX: 40
   moveAmountY: 20
@@ -190,7 +193,6 @@ MonoBehaviour:
     m_Bits: 256
   prefabs:
   - {fileID: 6670023173416801707, guid: 646a4ccdc2ab7244994960fd1061416f, type: 3}
-  - {fileID: 5602050367440176459, guid: e1afb2efbdea5874487b962dea95f659, type: 3}
   - {fileID: 9200873797169883877, guid: 7a8b606191ba3a245b997e2562099111, type: 3}
 --- !u!1 &64885947
 GameObject:

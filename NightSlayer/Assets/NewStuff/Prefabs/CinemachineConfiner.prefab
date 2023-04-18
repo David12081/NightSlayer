@@ -57,7 +57,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 6.25, y: 7}
-      - {x: -6.25, y: 7}
-      - {x: -6.25, y: 3}
-      - {x: 6.25, y: 3}
+    - - {x: 6, y: 7}
+      - {x: -6, y: 7}
+      - {x: -6, y: 3.5}
+      - {x: 6, y: 3.5}

@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 9200873796169906528}
   - component: {fileID: 9200873796169906534}
   - component: {fileID: 9200873796169906529}
-  - component: {fileID: 9200873796169906535}
+  - component: {fileID: 5451467324413994827}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
---- !u!114 &9200873796169906535
+--- !u!114 &5451467324413994827
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 0
   m_FrequencyGain: 5
-  mNoiseOffsets: {x: 704.6726, y: -430.63794, z: 338.4454}
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &9200873797169883877
 GameObject:
   m_ObjectHideFlags: 0

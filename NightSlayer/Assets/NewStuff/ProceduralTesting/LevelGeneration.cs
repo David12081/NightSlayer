@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,7 +74,7 @@ public class LevelGeneration : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Instantiate(prefabs[0], spawnedRooms[0].transform.position, Quaternion.identity);
         Instantiate(prefabs[1], spawnedRooms[0].transform.position, Quaternion.identity);
-        Instantiate(prefabs[2], spawnedRooms[0].transform.position, Quaternion.identity);
+        CinemachineShake.Instance.cinemachineConfiner.m_BoundingShape2D = spawnedRooms[0].GetComponentInChildren<PolygonCollider2D>();
         Destroy(this.gameObject);
     }
 
@@ -132,7 +133,7 @@ public class LevelGeneration : MonoBehaviour
             if(transform.position.y > minY)
             {
                 Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1, room);
-                if(roomDetection.GetComponent<RoomType>().type != 1 && roomDetection.GetComponent<RoomType>().type != 3)
+                if(roomDetection.GetComponent<RoomType>().Type != 1 && roomDetection.GetComponent<RoomType>().Type != 3)
                 {
                     if(downCounter >= 2)
                     {
