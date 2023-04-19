@@ -7,6 +7,7 @@ using UnityEngine.XR;
 
 public class LevelGeneration : MonoBehaviour
 {
+    [SerializeField] GameObject playerPosMinimap;
     [SerializeField] private Transform[] startingPositions;
     [SerializeField] private GameObject[] rooms; // index 0 -> LR, index 1 -> LRB, index 2 -> LRT, index 3 -> LRTB
 
@@ -75,6 +76,7 @@ public class LevelGeneration : MonoBehaviour
         Instantiate(prefabs[0], spawnedRooms[0].transform.position, Quaternion.identity);
         Instantiate(prefabs[1], spawnedRooms[0].transform.position, Quaternion.identity);
         CinemachineShake.Instance.cinemachineConfiner.m_BoundingShape2D = spawnedRooms[0].GetComponentInChildren<PolygonCollider2D>();
+        Instantiate(playerPosMinimap, new Vector3(spawnedRooms[0].transform.position.x, spawnedRooms[0].transform.position.y, playerPosMinimap.transform.position.z), Quaternion.identity);
         Destroy(this.gameObject);
     }
 
