@@ -284,8 +284,8 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator Dash()
     {
-        meleeStateMachine.SetNextState(new GroundDashAttackState());
         m_body2d.velocity = new Vector2(m_dashVelocity * m_facingDirection, 0f);
+        meleeStateMachine.SetNextState(new GroundDashAttackState());
         m_canMove = false;
         m_body2d.gravityScale = 0f;
         m_canDash = false;
