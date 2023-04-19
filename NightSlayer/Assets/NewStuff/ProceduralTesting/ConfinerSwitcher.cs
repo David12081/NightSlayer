@@ -14,11 +14,13 @@ public class ConfinerSwitcher : MonoBehaviour
     private void Start()
     {
         StartCoroutine(AssignPlayerMinimap());
+        minimapIcon.gameObject.SetActive(false);
     }
     private void Update()
     {
         if (playerOnCollider)
         {
+            minimapIcon.gameObject.SetActive(true);
             CinemachineShake.Instance.cinemachineConfiner.InvalidatePathCache();
             CinemachineShake.Instance.cinemachineConfiner.m_BoundingShape2D = polygonCollider;
             playerScript.gameObject.transform.position = spawnPoint.position;

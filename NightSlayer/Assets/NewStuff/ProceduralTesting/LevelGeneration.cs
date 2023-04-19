@@ -76,6 +76,7 @@ public class LevelGeneration : MonoBehaviour
         Instantiate(prefabs[0], spawnedRooms[0].transform.position, Quaternion.identity);
         Instantiate(prefabs[1], spawnedRooms[0].transform.position, Quaternion.identity);
         CinemachineShake.Instance.cinemachineConfiner.m_BoundingShape2D = spawnedRooms[0].GetComponentInChildren<PolygonCollider2D>();
+        spawnedRooms[0].gameObject.transform.Find("MinimapIcon").gameObject.SetActive(true);
         Instantiate(playerPosMinimap, new Vector3(spawnedRooms[0].transform.position.x, spawnedRooms[0].transform.position.y, playerPosMinimap.transform.position.z), Quaternion.identity);
         Destroy(this.gameObject);
     }
