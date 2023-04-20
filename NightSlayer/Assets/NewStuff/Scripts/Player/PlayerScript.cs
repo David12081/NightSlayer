@@ -162,28 +162,68 @@ public class PlayerScript : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = false;
             m_facingDirection = 1;
-            m_hitCollider.transform.localPosition = new Vector3(2f, m_hitCollider.transform.localPosition.y, m_hitCollider.transform.localPosition.z);
+            m_hitCollider.transform.localPosition = new Vector3(2f, 1.4f, m_hitCollider.transform.localPosition.z);
+            if(m_inputY >= 0.5f)
+            {
+                m_hitCollider.transform.localPosition = new Vector3(0f, 3.5f, m_hitCollider.transform.localPosition.z);
+            }
+            if(m_inputY <= -0.5f && !m_grounded)
+            {
+                m_hitCollider.transform.localPosition = new Vector3(0f, -1f, m_hitCollider.transform.localPosition.z);
+            }
         }
 
         else if (m_inputX < 0f)
         {
             GetComponent<SpriteRenderer>().flipX = true;
             m_facingDirection = -1;
-            m_hitCollider.transform.localPosition = new Vector3(-2f, m_hitCollider.transform.localPosition.y, m_hitCollider.transform.localPosition.z);
+            m_hitCollider.transform.localPosition = new Vector3(-2f, 1.4f, m_hitCollider.transform.localPosition.z);
+            if (m_inputY >= 0.5f)
+            {
+                m_hitCollider.transform.localPosition = new Vector3(0f, 3.5f, m_hitCollider.transform.localPosition.z);
+            }
+            if (m_inputY <= -0.5f && !m_grounded)
+            {
+                m_hitCollider.transform.localPosition = new Vector3(0f, -1f, m_hitCollider.transform.localPosition.z);
+            }
+        }
+
+        else if(m_inputY >= 0.5f)
+        {
+            m_hitCollider.transform.localPosition = new Vector3(0f, 3.5f, m_hitCollider.transform.localPosition.z);
+        }
+
+        else if (m_inputY == 0f)
+        {
+            if (m_facingDirection == 1)
+            {
+                m_hitCollider.transform.localPosition = new Vector3(2f, 1.4f, m_hitCollider.transform.localPosition.z);
+            }
+            else if (m_facingDirection == -1)
+            {
+                m_hitCollider.transform.localPosition = new Vector3(-2f, 1.4f, m_hitCollider.transform.localPosition.z);
+            }
+        }
+
+        else if (m_inputY <= -0.5f && !m_grounded)
+        {
+            m_hitCollider.transform.localPosition = new Vector3(0f, -1f, m_hitCollider.transform.localPosition.z);
+        }
+
+        else if(m_inputY <= -0.5f && m_grounded)
+        {
+            if (m_facingDirection == 1)
+            {
+                m_hitCollider.transform.localPosition = new Vector3(2f, 1.4f, m_hitCollider.transform.localPosition.z);
+            }
+            else if (m_facingDirection == -1)
+            {
+                m_hitCollider.transform.localPosition = new Vector3(-2f, 1.4f, m_hitCollider.transform.localPosition.z);
+            }
         }
 
         //Set AirSpeed in animator
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
-
-        //Death
-        //if (Input.GetKeyDown("e") && !m_rolling)
-        //{
-        //    m_animator.SetTrigger("Death");
-        //}
-
-        //Hurt
-        //else if (Input.GetKeyDown("q") && !m_rolling)
-        //    m_animator.SetTrigger("Hurt");
 
         // Block
         if (m_shielding && !m_rolling)
@@ -239,6 +279,16 @@ public class PlayerScript : MonoBehaviour
         {
             m_coyoteTimeCounter -= Time.deltaTime;
         }
+
+        //Death
+        //if (Input.GetKeyDown("e") && !m_rolling)
+        //{
+        //    m_animator.SetTrigger("Death");
+        //}
+
+        //Hurt
+        //else if (Input.GetKeyDown("q") && !m_rolling)
+        //    m_animator.SetTrigger("Hurt");
     }
 
     private void FixedUpdate()

@@ -59,10 +59,10 @@ public class MeleeBaseState : State
 
         if (attackAction.ReadValue<float>() == 1)
         {
-            AttackPressedTimer = 2;
+            AttackPressedTimer = 1;
         }
 
-        if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
+        if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0f)
         {
             shouldCombo = true;
         }

@@ -24,5 +24,17 @@ public class ComboCharacter : MonoBehaviour
         {
             meleeStateMachine.SetNextState(new GroundEntryState());
         }
+
+        if(playerScript.InputY >= 0.5f && attackAction.ReadValue<float>() == 1 && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+        {
+            Debug.Log("arriba");
+            meleeStateMachine.SetNextState(new AirUpMeleeState());
+        }
+
+        if (playerScript.InputY <= -0.5f && !playerScript.Grounded && attackAction.ReadValue<float>() == 1 && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+        {
+            Debug.Log("abajo");
+            meleeStateMachine.SetNextState(new AirDownMeleeState());
+        }
     }
 }

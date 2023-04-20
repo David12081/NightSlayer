@@ -7,6 +7,7 @@ public class ConfinerSwitcher : MonoBehaviour
     [SerializeField] PolygonCollider2D polygonCollider;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Transform minimapIcon;
+    [SerializeField] int confinerType;
     private GameObject playerPosMinimap;
     private PlayerScript playerScript;
     private bool playerOnCollider;
@@ -23,8 +24,15 @@ public class ConfinerSwitcher : MonoBehaviour
             minimapIcon.gameObject.SetActive(true);
             CinemachineShake.Instance.cinemachineConfiner.InvalidatePathCache();
             CinemachineShake.Instance.cinemachineConfiner.m_BoundingShape2D = polygonCollider;
-            playerScript.gameObject.transform.position = spawnPoint.position;
             playerPosMinimap.transform.position = minimapIcon.transform.position;
+            if(confinerType == 0)
+            {
+                playerScript.gameObject.transform.position = new Vector3(spawnPoint.position.x, playerScript.gameObject.transform.position.y, spawnPoint.position.z);
+            }
+            else if(confinerType == 1)
+            {
+                playerScript.gameObject.transform.position = spawnPoint.position;
+            }
         }
     }
 

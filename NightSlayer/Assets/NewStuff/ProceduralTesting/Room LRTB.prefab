@@ -12078,6 +12078,7 @@ MonoBehaviour:
   polygonCollider: {fileID: 85397504778821060}
   spawnPoint: {fileID: 2286309019731888341}
   minimapIcon: {fileID: 653892612058135487}
+  confinerType: 1
 --- !u!1 &3565295205235506415
 GameObject:
   m_ObjectHideFlags: 0
@@ -38402,6 +38403,7 @@ MonoBehaviour:
   polygonCollider: {fileID: 85397504778821060}
   spawnPoint: {fileID: 3832970715094963843}
   minimapIcon: {fileID: 653892612058135487}
+  confinerType: 1
 --- !u!1 &6729374735186370984
 GameObject:
   m_ObjectHideFlags: 0
@@ -50251,6 +50253,7 @@ MonoBehaviour:
   polygonCollider: {fileID: 85397504778821060}
   spawnPoint: {fileID: 6279446411873348922}
   minimapIcon: {fileID: 653892612058135487}
+  confinerType: 0
 --- !u!1 &7688620098516412919
 GameObject:
   m_ObjectHideFlags: 0
@@ -50325,6 +50328,7 @@ MonoBehaviour:
   polygonCollider: {fileID: 85397504778821060}
   spawnPoint: {fileID: 1763373594523493022}
   minimapIcon: {fileID: 653892612058135487}
+  confinerType: 0
 --- !u!1 &8197950915128321044
 GameObject:
   m_ObjectHideFlags: 0

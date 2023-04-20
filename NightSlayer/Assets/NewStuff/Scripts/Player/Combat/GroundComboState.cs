@@ -13,7 +13,7 @@ public class GroundComboState : MeleeBaseState
         attackDamage = 10;
         knockbackForceX = 3;
         knockbackForceY = 10;
-        camShakeIntensity = 0.1f;
+        camShakeIntensity = 0.5f;
         duration = 0.5f;
         animator.SetTrigger("Attack" + attackIndex);
     }
