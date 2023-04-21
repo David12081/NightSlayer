@@ -42,9 +42,6 @@ public class PlayerScript : MonoBehaviour
         set => m_inputY = value;
     }
 
-    private float m_lastTapTime;
-    private bool m_doubleTap;
-    private const float DOUBLE_TAP_TIME = 0.2f;
     private bool m_running;
     public bool Running
     {
