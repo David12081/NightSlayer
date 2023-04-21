@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-using System.IO;
 
 public class ButtonScript : MonoBehaviour
 {
     public string scene;
     public GameObject lastMenu, currentMenu;
-    public SaveLoadSystem saveLoadSystem;
     public GameObject menuCanvas, decisionCanvas;
     public GameObject player;
 
@@ -39,32 +35,6 @@ public class ButtonScript : MonoBehaviour
     public void GoToScene(string scene)
     {
         SceneManager.LoadScene(scene);
-    }
-
-    public void NewGameButton()
-    {
-        if(!File.Exists(saveLoadSystem.SavePath))
-        {
-            saveLoadSystem.DeleteSaveFile();
-            GoToScene("Test");
-            PlayerPrefs.SetString("SavedLevel", "Test");
-            AudioManager.instance.ChangeMusic(AudioManager.instance.clips[1]);
-        }
-        else
-        {
-            menuCanvas.SetActive(false);
-            decisionCanvas.SetActive(true);
-        }
-    }
-
-    public void LoadGameButton()
-    {
-        if (PlayerPrefs.HasKey("SavedLevel"))
-        {
-            AudioManager.instance.ChangeMusic(AudioManager.instance.clips[1]);
-            string levelToLoad = PlayerPrefs.GetString("SavedLevel");
-            SceneManager.LoadScene(levelToLoad);
-        }
     }
 
     public void DestroyPlayer()

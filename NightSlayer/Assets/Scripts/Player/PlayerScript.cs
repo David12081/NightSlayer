@@ -30,6 +30,11 @@ public class PlayerScript : MonoBehaviour
     }
 
     private bool m_rolling = false;
+    public bool Rolling
+    {
+        get => m_rolling;
+        set => m_rolling = value;
+    }
     private int m_facingDirection = 1;
     private float m_delayToIdle = 0.0f;
     private float m_rollDuration = 0.5f;
