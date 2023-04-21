@@ -332,6 +332,11 @@ public class PlayerScript : MonoBehaviour
         m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
     }
 
+    public void HopAttack()
+    {
+        m_body2d.velocity = new Vector2(m_body2d.velocity.x, (m_jumpForce - 1f));
+    }
+
     IEnumerator Dash()
     {
         m_body2d.velocity = new Vector2(m_dashVelocity * m_facingDirection, 0f);

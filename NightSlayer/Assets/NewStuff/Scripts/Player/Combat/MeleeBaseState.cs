@@ -36,6 +36,8 @@ public class MeleeBaseState : State
     // Input buffer Timer
     private float AttackPressedTimer = 0;
 
+    private PlayerScript playerScript;
+
     public override void OnEnter(StateMachine _stateMachine)
     {
         base.OnEnter(_stateMachine);
@@ -45,6 +47,7 @@ public class MeleeBaseState : State
         HitEffectPrefab = GetComponent<ComboCharacter>().Hiteffect;
         playerInput = GetComponent<PlayerInput>();
         attackAction = playerInput.actions["Attack"];
+        playerScript = animator.GetComponent<PlayerScript>();
     }
 
     public override void OnUpdate()
@@ -99,6 +102,9 @@ public class MeleeBaseState : State
                     GameObject.Instantiate(HitEffectPrefab, collidersToDamage[i].transform);
                     Debug.Log("Enemy Has Taken: " + attackDamage + " Damage");
                     collidersDamaged.Add(collidersToDamage[i]);
+
+                    if(stateMachine.CurrentState.GetType() == typeof(AirDownMeleeState))
+                        playerScript.HopAttack();
                 }
             }
         }
