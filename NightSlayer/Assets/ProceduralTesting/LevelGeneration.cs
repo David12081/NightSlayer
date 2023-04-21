@@ -36,6 +36,8 @@ public class LevelGeneration : MonoBehaviour
 
     [SerializeField] private GameObject[] prefabs;
 
+    private bool spawned = false;
+
     private void Start()
     {
         int randStartingPos = Random.Range(0, startingPositions.Length);
@@ -43,6 +45,8 @@ public class LevelGeneration : MonoBehaviour
         Instantiate(rooms[0], transform.position, Quaternion.identity);
 
         direction = Random.Range(1, 6);
+
+        spawned = false;
     }
 
     private void Update()
@@ -66,12 +70,14 @@ public class LevelGeneration : MonoBehaviour
                     spawnedRooms.RemoveAt(i);
                 }
             }
-            StartCoroutine(SpawnPrefabs());
+            if(!spawned)
+                StartCoroutine(SpawnPrefabs());
         }
     }
 
     IEnumerator SpawnPrefabs()
     {
+        spawned = true;
         yield return new WaitForSeconds(1f);
         Instantiate(prefabs[0], spawnedRooms[0].transform.position, Quaternion.identity);
         Instantiate(prefabs[1], spawnedRooms[0].transform.position, Quaternion.identity);
