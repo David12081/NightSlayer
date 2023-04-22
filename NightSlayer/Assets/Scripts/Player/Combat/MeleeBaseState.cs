@@ -34,7 +34,7 @@ public class MeleeBaseState : State
     private GameObject HitEffectPrefab;
 
     // Input buffer Timer
-    private float AttackPressedTimer = 0;
+    private float AttackPressedTimer = 0f;
 
     private PlayerScript playerScript;
 
@@ -48,7 +48,8 @@ public class MeleeBaseState : State
         playerInput = GetComponent<PlayerInput>();
         attackAction = playerInput.actions["Attack"];
         playerScript = animator.GetComponent<PlayerScript>();
-    }
+        AttackPressedTimer = 0f;
+}
 
     public override void OnUpdate()
     {
@@ -62,12 +63,17 @@ public class MeleeBaseState : State
 
         if (attackAction.ReadValue<float>() == 1)
         {
-            AttackPressedTimer = 1;
+            AttackPressedTimer = 2f;
+            Debug.Log("click");
         }
 
-        if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0f)
+        if (animator.GetFloat("AttackWindow.Open") == 1f && AttackPressedTimer > 0f)
         {
             shouldCombo = true;
+        }
+        else if(animator.GetFloat("AttackWindow.Open") == 0f && AttackPressedTimer < 0f)
+        {
+            shouldCombo = false;
         }
     }
 

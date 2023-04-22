@@ -3060,7 +3060,6 @@ MonoBehaviour:
   scene: 
   lastMenu: {fileID: 0}
   currentMenu: {fileID: 4253358311639078685}
-  saveLoadSystem: {fileID: 0}
   menuCanvas: {fileID: 0}
   decisionCanvas: {fileID: 0}
   player: {fileID: 0}
@@ -7165,7 +7164,6 @@ MonoBehaviour:
   scene: 
   lastMenu: {fileID: 0}
   currentMenu: {fileID: 5357633110774737528}
-  saveLoadSystem: {fileID: 0}
   menuCanvas: {fileID: 0}
   decisionCanvas: {fileID: 0}
   player: {fileID: 0}
@@ -8120,7 +8118,6 @@ MonoBehaviour:
   scene: 
   lastMenu: {fileID: 0}
   currentMenu: {fileID: 0}
-  saveLoadSystem: {fileID: 0}
   menuCanvas: {fileID: 0}
   decisionCanvas: {fileID: 0}
   player: {fileID: 0}
@@ -8527,7 +8524,6 @@ MonoBehaviour:
   scene: 
   lastMenu: {fileID: 0}
   currentMenu: {fileID: 106843258472266507}
-  saveLoadSystem: {fileID: 0}
   menuCanvas: {fileID: 0}
   decisionCanvas: {fileID: 0}
   player: {fileID: 0}
@@ -10806,7 +10802,7 @@ MonoBehaviour:
     m_Bits: 64
   m_GroundCheck: {fileID: 6670023172963758596}
   m_dashVelocity: 30
-  m_dashTime: 0.25
+  m_dashTime: 0.5
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -11766,7 +11762,6 @@ MonoBehaviour:
   scene: 
   lastMenu: {fileID: 0}
   currentMenu: {fileID: 0}
-  saveLoadSystem: {fileID: 0}
   menuCanvas: {fileID: 0}
   decisionCanvas: {fileID: 0}
   player: {fileID: 6670023173416801707}
@@ -13460,7 +13455,6 @@ MonoBehaviour:
   scene: 
   lastMenu: {fileID: 0}
   currentMenu: {fileID: 6459257717883037125}
-  saveLoadSystem: {fileID: 0}
   menuCanvas: {fileID: 0}
   decisionCanvas: {fileID: 0}
   player: {fileID: 0}

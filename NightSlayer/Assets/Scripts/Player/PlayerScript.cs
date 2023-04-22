@@ -269,6 +269,7 @@ public class PlayerScript : MonoBehaviour
             if (attackAction.ReadValue<float>() == 1 && !m_rolling && m_canDash && m_grounded
                 && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
             {
+                m_body2d.velocity = new Vector2(m_dashVelocity * m_facingDirection, 0f);
                 StartCoroutine(Dash());
             }
         }
@@ -341,7 +342,6 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator Dash()
     {
-        m_body2d.velocity = new Vector2(m_dashVelocity * m_facingDirection, 0f);
         meleeStateMachine.SetNextState(new GroundDashAttackState());
         m_canMove = false;
         m_body2d.gravityScale = 0f;
