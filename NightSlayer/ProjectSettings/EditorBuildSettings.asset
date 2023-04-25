@@ -14,7 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ProjectAssets/Scenes/LevelProcedural.unity
     guid: 88a1bc8307dae784591da0be6d1a4e19
-  - enabled: 0
-    path: Assets/Scenes/Test.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
