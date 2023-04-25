@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoomType : MonoBehaviour
 {
     [SerializeField] private int type;
-    private Collider2D collider2D; 
+    private new Collider2D collider2D;
 
     public int Type
     {
