@@ -13,9 +13,6 @@ public class MeleeBaseState : State
     // The attack index in the sequence of attacks
     protected int attackIndex;
 
-    protected PlayerInput playerInput;
-    protected InputAction attackAction;
-
     // The attack damage in the sequence of attacks
     protected int attackDamage;
     // The attack X-axis knockback force in the sequence of attacks
@@ -38,6 +35,9 @@ public class MeleeBaseState : State
 
     private PlayerScript playerScript;
 
+    private PlayerInput playerInput;
+    private InputAction attackAction;
+
     public override void OnEnter(StateMachine _stateMachine)
     {
         base.OnEnter(_stateMachine);
@@ -49,7 +49,9 @@ public class MeleeBaseState : State
         attackAction = playerInput.actions["Attack"];
         playerScript = animator.GetComponent<PlayerScript>();
         AttackPressedTimer = 0f;
-}
+        attackAction.started += AttackTImer;
+        attackAction.performed += AttackTImer;
+    }
 
     public override void OnUpdate()
     {
@@ -61,19 +63,26 @@ public class MeleeBaseState : State
             Attack();
         }
 
-        if (attackAction.ReadValue<float>() == 1)
-        {
-            AttackPressedTimer = 2f;
-            Debug.Log("click");
-        }
-
-        if (animator.GetFloat("AttackWindow.Open") == 1f && AttackPressedTimer > 0f)
+        if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0f)
         {
             shouldCombo = true;
         }
-        else if(animator.GetFloat("AttackWindow.Open") == 0f && AttackPressedTimer < 0f)
+        else if(animator.GetFloat("AttackWindow.Open") < 0f && AttackPressedTimer < 0f)
         {
             shouldCombo = false;
+        }
+    }
+
+    void AttackTImer(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            AttackPressedTimer = 2f;
+        }
+        else if(context.performed)
+        {
+            attackAction.started -= AttackTImer;
+            attackAction.performed -= AttackTImer;
         }
     }
 
@@ -96,7 +105,7 @@ public class MeleeBaseState : State
                 HealthSystem hitHealthSystem = collidersToDamage[i].GetComponentInChildren<HealthSystem>();
 
                 // Only check colliders with a valid Team Componnent attached
-                if (hitTeamComponent && hitTeamComponent.teamIndex == TeamIndex.Enemy)
+                if (hitTeamComponent /*&& hitTeamComponent.teamIndex == TeamIndex.Enemy*/)
                 {
                     hitHealthSystem.ReceiveDamage(attackDamage);
                     hitHealthSystem.Knockback(animator.transform, knockbackForceX, knockbackForceY);

@@ -171,7 +171,7 @@ public class PlayerScript : MonoBehaviour
             }
             if(m_inputY <= -0.5f && !m_grounded)
             {
-                m_hitCollider.transform.localPosition = new Vector3(0f, -1f, m_hitCollider.transform.localPosition.z);
+                m_hitCollider.transform.localPosition = new Vector3(0f, -0.5f, m_hitCollider.transform.localPosition.z);
             }
         }
 
@@ -186,7 +186,7 @@ public class PlayerScript : MonoBehaviour
             }
             if (m_inputY <= -0.5f && !m_grounded)
             {
-                m_hitCollider.transform.localPosition = new Vector3(0f, -1f, m_hitCollider.transform.localPosition.z);
+                m_hitCollider.transform.localPosition = new Vector3(0f, -0.5f, m_hitCollider.transform.localPosition.z);
             }
         }
 
@@ -209,7 +209,7 @@ public class PlayerScript : MonoBehaviour
 
         else if (m_inputY <= -0.5f && !m_grounded)
         {
-            m_hitCollider.transform.localPosition = new Vector3(0f, -1f, m_hitCollider.transform.localPosition.z);
+            m_hitCollider.transform.localPosition = new Vector3(0f, -0.5f, m_hitCollider.transform.localPosition.z);
         }
 
         else if(m_inputY <= -0.5f && m_grounded)
