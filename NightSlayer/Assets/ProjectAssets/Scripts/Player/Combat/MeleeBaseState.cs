@@ -109,6 +109,7 @@ public class MeleeBaseState : State
                 {
                     hitHealthSystem.ReceiveDamage(attackDamage);
                     hitHealthSystem.Knockback(animator.transform, knockbackForceX, knockbackForceY);
+                    hitHealthSystem.Flash();
 
                     CinemachineShake.Instance.ShakeCamera(camShakeIntensity, 0.1f);
 

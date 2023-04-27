@@ -178,3 +178,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  flashMaterial: {fileID: 2100000, guid: dcf4d8da6ba43104d9ae8c5147a60377, type: 2}
+  flashDuration: 0.125
+  spriteRenderer: {fileID: 6991232366558169586}

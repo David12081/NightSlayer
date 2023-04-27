@@ -69,6 +69,7 @@ public class LevelGeneration : MonoBehaviour
                     spawnedRooms.RemoveAt(i);
                 }
             }
+
             if(!spawned)
                 StartCoroutine(SpawnPrefabs());
         }

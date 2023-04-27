@@ -155,6 +155,7 @@ public class PlayerScript : MonoBehaviour
         {
             m_rollCurrentTime = 0f;
             m_rolling = false;
+            Physics2D.IgnoreLayerCollision(3, 7, false);
         }
 
         m_animator.SetBool("Grounded", m_grounded);
@@ -266,11 +267,11 @@ public class PlayerScript : MonoBehaviour
 
         if (m_running)
         {
-            if (attackAction.ReadValue<float>() == 1 && !m_rolling && m_canDash && m_grounded
-                && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+            if (attackAction.ReadValue<float>() == 1 && !m_rolling && m_canDash && m_grounded)
             {
                 m_body2d.velocity = new Vector2(m_dashVelocity * m_facingDirection, 0f);
-                StartCoroutine(Dash());
+                if(meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+                    StartCoroutine(Dash());
             }
         }
 
@@ -325,6 +326,7 @@ public class PlayerScript : MonoBehaviour
         m_rolling = true;
         m_animator.SetTrigger("Roll");
         m_body2d.velocity = transform.right * m_facingDirection * m_rollForce;
+        Physics2D.IgnoreLayerCollision(3, 7, true);
     }
 
     void Jump()

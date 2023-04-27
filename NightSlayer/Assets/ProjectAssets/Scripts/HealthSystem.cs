@@ -1,16 +1,28 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class HealthSystem : MonoBehaviour
 {
+    [Header("Health Variables")]
     [SerializeField] private Rigidbody2D m_Rigidbody2D;
     [SerializeField] private int m_currentHealth;
     [SerializeField] private int m_maxHealth;
     [SerializeField] private UnityEvent OnZeroHealth;
 
+    [Header("Damage Blink Variables")]
+    [SerializeField] private Material flashMaterial;
+    [SerializeField] float flashDuration;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    private Material originalMaterial;
+    private Coroutine flashRoutine;
+
     public void Awake()
     {
         m_currentHealth = m_maxHealth;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalMaterial = spriteRenderer.material;
     }
 
     public int CurrentHealth
@@ -28,7 +40,6 @@ public class HealthSystem : MonoBehaviour
     public void ReceiveDamage(int damageAmount)
     {
         m_currentHealth -= damageAmount;
-        //StartCoroutine(DamageBlink());
         if (CurrentHealth <= 0)
         {
             OnZeroHealth?.Invoke();
@@ -41,18 +52,6 @@ public class HealthSystem : MonoBehaviour
         m_currentHealth = Mathf.Clamp(m_currentHealth, 0, m_maxHealth);
     }
 
-    //IEnumerator DamageBlink()
-    //{
-    //    for (int i = 0; i < 5; i++)
-    //    {
-    //        _material.color = Color.white;
-    //        yield return new WaitForSeconds(0.15f);
-    //        _material.color = Color.red;
-    //        yield return new WaitForSeconds(0.15f);
-    //    }
-    //    _material.color = Color.white;
-    //}
-
     public void DestroyObject()
     {
         Destroy(this.gameObject);
@@ -62,6 +61,22 @@ public class HealthSystem : MonoBehaviour
     {
         Vector2 dir = transform.position - t.position;
         m_Rigidbody2D.velocity = new Vector2(dir.x * knockbackForceX, knockbackForceY);
-        //StartCoroutine(ResetKnockback());
+    }
+
+    public void Flash()
+    {
+        if(flashRoutine != null)
+        {
+            StopCoroutine(flashRoutine);
+        }
+        flashRoutine = StartCoroutine(FlashRoutine());
+    }
+    
+    IEnumerator FlashRoutine()
+    {
+        spriteRenderer.material = flashMaterial;
+        yield return new WaitForSeconds(flashDuration);
+        spriteRenderer.material = originalMaterial;
+        flashRoutine = null;
     }
 }
