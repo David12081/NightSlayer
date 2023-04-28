@@ -30,7 +30,7 @@ public class CinemachineShake : MonoBehaviour
     IEnumerator AssignVariables()
     {
         yield return new WaitForSeconds(0.5f);
-        cinemachineVirtualCamera.m_Follow = GameObject.Find("HeroKnight(Clone)").transform;
+        cinemachineVirtualCamera.m_Follow = GameObject.Find("Player(Clone)").transform;
     }
 
     public void ShakeCamera(float intensity, float time)

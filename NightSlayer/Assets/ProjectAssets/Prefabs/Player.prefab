@@ -10640,7 +10640,7 @@ GameObject:
   - component: {fileID: 6670023173416801709}
   - component: {fileID: 6670023173416801706}
   m_Layer: 3
-  m_Name: HeroKnight
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
