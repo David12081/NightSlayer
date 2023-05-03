@@ -38,6 +38,8 @@ public class MeleeBaseState : State
     private PlayerInput playerInput;
     private InputAction attackAction;
 
+    private AttackDetails attackDetails;
+
     public override void OnEnter(StateMachine _stateMachine)
     {
         base.OnEnter(_stateMachine);
@@ -51,6 +53,8 @@ public class MeleeBaseState : State
         AttackPressedTimer = 0f;
         attackAction.started += AttackTImer;
         attackAction.performed += AttackTImer;
+        attackDetails.position = animator.transform.position;
+        attackDetails.stunDamageAmount = 1f;
     }
 
     public override void OnUpdate()
@@ -97,19 +101,21 @@ public class MeleeBaseState : State
         ContactFilter2D filter = new ContactFilter2D();
         filter.useTriggers = true;
         int colliderCount = Physics2D.OverlapCollider(hitCollider, filter, collidersToDamage);
+
+        attackDetails.damageAmount = attackDamage;
+        attackDetails.knockbackForceX = knockbackForceX;
+        attackDetails.knockbackForceY = knockbackForceY;
+        
         for (int i = 0; i < colliderCount; i++)
         {
             if (!collidersDamaged.Contains(collidersToDamage[i]))
             {
-                TeamComponent hitTeamComponent = collidersToDamage[i].GetComponentInChildren<TeamComponent>();
-                HealthSystem hitHealthSystem = collidersToDamage[i].GetComponentInChildren<HealthSystem>();
+                TeamComponent hitTeamComponent = collidersToDamage[i].GetComponent<TeamComponent>();
 
                 // Only check colliders with a valid Team Componnent attached
                 if (hitTeamComponent && hitTeamComponent.teamIndex == TeamIndex.Enemy)
                 {
-                    hitHealthSystem.ReceiveDamage(attackDamage);
-                    hitHealthSystem.Knockback(animator.transform, knockbackForceX, knockbackForceY);
-                    hitHealthSystem.Flash();
+                    hitTeamComponent.transform.SendMessage("Damage", attackDetails);
 
                     CinemachineShake.Instance.ShakeCamera(camShakeIntensity, 0.1f);
 
@@ -119,7 +125,7 @@ public class MeleeBaseState : State
                     Debug.Log("Enemy Has Taken: " + attackDamage + " Damage");
                     collidersDamaged.Add(collidersToDamage[i]);
 
-                    if(stateMachine.CurrentState.GetType() == typeof(AirDownMeleeState))
+                    if (stateMachine.CurrentState.GetType() == typeof(AirDownMeleeState))
                         playerScript.HopAttack();
                 }
             }

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6991232366558169587}
   - component: {fileID: 6991232366558169584}
   - component: {fileID: 6991232366558169585}
-  - component: {fileID: 6991232366558169590}
   m_Layer: 7
   m_Name: STRAW_DUMMY_VER_01
   m_TagString: Untagged
@@ -148,36 +147,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _teamIndex: 2
---- !u!114 &6991232366558169590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6991232366558169591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31852ce7243ef1842b6ed3bf4ec12f75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Rigidbody2D: {fileID: 6991232366558169587}
-  m_currentHealth: 100
-  m_maxHealth: 100
-  OnZeroHealth:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6991232366558169590}
-        m_TargetAssemblyTypeName: HealthSystem, Assembly-CSharp
-        m_MethodName: DestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  flashMaterial: {fileID: 2100000, guid: dcf4d8da6ba43104d9ae8c5147a60377, type: 2}
-  flashDuration: 0.125
-  spriteRenderer: {fileID: 6991232366558169586}
