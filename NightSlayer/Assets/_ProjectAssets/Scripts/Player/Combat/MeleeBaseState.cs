@@ -128,6 +128,15 @@ public class MeleeBaseState : State
                     if (stateMachine.CurrentState.GetType() == typeof(AirDownMeleeState))
                         playerScript.HopAttack();
                 }
+
+                if (hitTeamComponent && hitTeamComponent.teamIndex == TeamIndex.Neutral)
+                {
+                    if (stateMachine.CurrentState.GetType() == typeof(AirDownMeleeState))
+                    {
+                        playerScript.HopAttack();
+                        GameObject.Instantiate(HitEffectPrefab, hitCollider.transform);
+                    }
+                }
             }
         }
     }

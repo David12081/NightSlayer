@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.10.0" name="Night Slayer Forest Tileset" tilewidth="16" tileheight="16" tilecount="4096" columns="64">
+<tileset version="1.10" tiledversion="2023.04.05" name="Night Slayer Forest Tileset" tilewidth="16" tileheight="16" tilecount="4096" columns="64">
  <image source="../../PF SET1/mainlevbuild.png" width="1024" height="1024"/>
  <tile id="65">
   <objectgroup draworder="index" id="2">
@@ -174,6 +174,26 @@
  <tile id="107">
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="122">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0" y="0" width="14" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="123">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="2" y="0" width="14" height="11"/>
+  </objectgroup>
+ </tile>
+ <tile id="124">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0" y="0" width="15" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="125">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="1" y="0" width="15" height="16"/>
   </objectgroup>
  </tile>
  <tile id="129">
@@ -351,6 +371,16 @@
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
  </tile>
+ <tile id="187">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0" y="2" width="10" height="12"/>
+  </objectgroup>
+ </tile>
+ <tile id="188">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="6" y="2" width="10" height="12"/>
+  </objectgroup>
+ </tile>
  <tile id="193">
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
@@ -451,6 +481,16 @@
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
  </tile>
+ <tile id="251">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0" y="2" width="7" height="12"/>
+  </objectgroup>
+ </tile>
+ <tile id="252">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="9" y="2" width="7" height="12"/>
+  </objectgroup>
+ </tile>
  <tile id="257">
   <objectgroup draworder="index" id="2">
    <object id="1" x="0.0625" y="0" width="15.9375" height="16"/>
@@ -534,6 +574,26 @@
  <tile id="299">
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="314">
+  <objectgroup draworder="index" id="2">
+   <object id="2" x="0" y="0" width="15" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="315">
+  <objectgroup draworder="index" id="2">
+   <object id="2" x="1" y="0" width="15" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="316">
+  <objectgroup draworder="index" id="2">
+   <object id="3" x="0" y="5" width="14" height="11"/>
+  </objectgroup>
+ </tile>
+ <tile id="317">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="2" y="0" width="14" height="16"/>
   </objectgroup>
  </tile>
  <tile id="321">
@@ -1240,6 +1300,31 @@
  <tile id="1051">
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="1054">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="5" y="0" width="11" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="1055">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0" y="0" width="16" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="1056">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0" y="0" width="16" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="1057">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0" y="0" width="16" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="1058">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0" y="0" width="12.0909" height="16"/>
   </objectgroup>
  </tile>
  <tile id="1089">
