@@ -10797,17 +10797,12 @@ MonoBehaviour:
   m_animator: {fileID: 6670023173416801713}
   m_body2d: {fileID: 6670023173416801711}
   m_hitCollider: {fileID: 6670023173894295365}
-  m_whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 8
-  m_whatIsEnemy:
-    serializedVersion: 2
-    m_Bits: 128
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 64
   m_GroundCheck: {fileID: 6670023172963758596}
-  m_dashVelocity: 30
+  m_rollDuration: 0.5
+  m_dashVelocity: 100
   m_dashTime: 0.5
   OnLandEvent:
     m_PersistentCalls:

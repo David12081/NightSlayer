@@ -37,7 +37,7 @@ public class PlayerScript : MonoBehaviour
     }
     private int m_facingDirection = 1;
     private float m_delayToIdle = 0.0f;
-    private float m_rollDuration = 0.5f;
+    [SerializeField] private float m_rollDuration = 0.5f;
     private float m_rollCurrentTime;
     private float m_inputX;
     private float m_inputY;
@@ -156,6 +156,8 @@ public class PlayerScript : MonoBehaviour
             m_rollCurrentTime = 0f;
             m_rolling = false;
             Physics2D.IgnoreLayerCollision(3, 7, false);
+            m_canMove = true;
+            m_body2d.gravityScale = m_initialGravity;
         }
 
         m_animator.SetBool("Grounded", m_grounded);
@@ -283,16 +285,6 @@ public class PlayerScript : MonoBehaviour
         {
             m_coyoteTimeCounter -= Time.deltaTime;
         }
-
-        //Death
-        //if (Input.GetKeyDown("e") && !m_rolling)
-        //{
-        //    m_animator.SetTrigger("Death");
-        //}
-
-        //Hurt
-        //else if (Input.GetKeyDown("q") && !m_rolling)
-        //    m_animator.SetTrigger("Hurt");
     }
 
     private void FixedUpdate()
@@ -327,6 +319,8 @@ public class PlayerScript : MonoBehaviour
         m_animator.SetTrigger("Roll");
         m_body2d.velocity = transform.right * m_facingDirection * m_rollForce;
         Physics2D.IgnoreLayerCollision(3, 7, true);
+        m_canMove = false;
+        m_body2d.gravityScale = 0f;
     }
 
     void Jump()

@@ -42,7 +42,7 @@ public class ConfinerSwitcher : MonoBehaviour
 
     IEnumerator AssignPlayerMinimap()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6f);
         playerPosMinimap = GameObject.Find("PlayerPositionMinimap(Clone)").gameObject;
     }
 
