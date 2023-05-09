@@ -72,7 +72,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428894020248432229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 0, y: -6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12324,7 +12324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   polygonCollider: {fileID: 85397504778821060}
-  spawnPoint: {fileID: 2286309019731888341}
+  spawnPoint: {fileID: 3832970715094963843}
   minimapIcon: {fileID: 653892612058135487}
   confinerType: 1
 --- !u!1 &3565295205235506415
@@ -38865,7 +38865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   polygonCollider: {fileID: 85397504778821060}
-  spawnPoint: {fileID: 3832970715094963843}
+  spawnPoint: {fileID: 2286309019731888341}
   minimapIcon: {fileID: 653892612058135487}
   confinerType: 1
 --- !u!1 &6729374735186370984
@@ -50458,7 +50458,7 @@ GameObject:
   - component: {fileID: 6803388824914293986}
   - component: {fileID: 6803388824914293987}
   m_Layer: 8
-  m_Name: Room LRTB
+  m_Name: Room LRTB 0
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
