@@ -1649,7 +1649,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: X
+  m_Text: Y
 --- !u!222 &286194877
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4245,7 +4245,6 @@ MonoBehaviour:
   scene: 
   lastMenu: {fileID: 0}
   currentMenu: {fileID: 0}
-  saveLoadSystem: {fileID: 0}
   menuCanvas: {fileID: 0}
   decisionCanvas: {fileID: 0}
   player: {fileID: 0}
@@ -4826,7 +4825,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Left Stick Press
+  m_Text: Left Stick
 --- !u!222 &691904888
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5895,6 +5894,34 @@ MonoBehaviour:
     rightStickDown: {fileID: 21300000, guid: c0814790cfc4a354b8095bdbaa2a38f7, type: 3}
     rightStickLeft: {fileID: 21300000, guid: b862cf616c0e68e4a9299627af0897ed, type: 3}
     rightStickRight: {fileID: 21300000, guid: ad957ae622bd9404b91b59a693d1443c, type: 3}
+  nintendoSwitch:
+    buttonSouth: {fileID: 21300000, guid: ce9b96bb7a9d27f44900c850406d1d20, type: 3}
+    buttonNorth: {fileID: 21300000, guid: 1b79a04a781f718458bd68e673d52ffb, type: 3}
+    buttonEast: {fileID: 21300000, guid: edebbe0e6fabac448a498c0bb516f085, type: 3}
+    buttonWest: {fileID: 21300000, guid: 5922055294bdb054b8a2690a6881f047, type: 3}
+    startButton: {fileID: 21300000, guid: f4db033e708953a469d1a47937d9d805, type: 3}
+    selectButton: {fileID: 21300000, guid: dcf4cf5231c5c5240b66f3bb1cfdcd0b, type: 3}
+    leftTrigger: {fileID: 21300000, guid: 2bfe3dc836211224da55b6ad81613c77, type: 3}
+    rightTrigger: {fileID: 21300000, guid: 69f62d2bfb458ba49ad59a99a4b7e8c9, type: 3}
+    leftShoulder: {fileID: 21300000, guid: 060f5c4140243434296ade6d42671b48, type: 3}
+    rightShoulder: {fileID: 21300000, guid: f70217874cf984641b58973c01c1119b, type: 3}
+    dpad: {fileID: 21300000, guid: 753d904bddadfc541a9eb11845791e49, type: 3}
+    dpadUp: {fileID: 21300000, guid: cdd8cc4b6babccd4abba7f9f2071b714, type: 3}
+    dpadDown: {fileID: 21300000, guid: cf4733216d3026e43a131b28ebc0d30f, type: 3}
+    dpadLeft: {fileID: 21300000, guid: e087ba980db64b44f9276eae3b6feba1, type: 3}
+    dpadRight: {fileID: 21300000, guid: c06eb7c87f188a74eb5a95ab8597ad60, type: 3}
+    leftStick: {fileID: 21300000, guid: ac5452dc677cd2c418812b455e9d87d8, type: 3}
+    rightStick: {fileID: 21300000, guid: 225beec4097007a46976cf4084d9af09, type: 3}
+    leftStickPress: {fileID: 21300000, guid: ac5452dc677cd2c418812b455e9d87d8, type: 3}
+    rightStickPress: {fileID: 21300000, guid: 225beec4097007a46976cf4084d9af09, type: 3}
+    leftStickUp: {fileID: 21300000, guid: ac5452dc677cd2c418812b455e9d87d8, type: 3}
+    leftStickDown: {fileID: 21300000, guid: ac5452dc677cd2c418812b455e9d87d8, type: 3}
+    leftStickLeft: {fileID: 21300000, guid: ac5452dc677cd2c418812b455e9d87d8, type: 3}
+    leftStickRight: {fileID: 21300000, guid: ac5452dc677cd2c418812b455e9d87d8, type: 3}
+    rightStickUp: {fileID: 21300000, guid: 225beec4097007a46976cf4084d9af09, type: 3}
+    rightStickDown: {fileID: 21300000, guid: 225beec4097007a46976cf4084d9af09, type: 3}
+    rightStickLeft: {fileID: 21300000, guid: 225beec4097007a46976cf4084d9af09, type: 3}
+    rightStickRight: {fileID: 21300000, guid: 225beec4097007a46976cf4084d9af09, type: 3}
 --- !u!1 &791456025
 GameObject:
   m_ObjectHideFlags: 0
@@ -7379,7 +7406,6 @@ MonoBehaviour:
   scene: 
   lastMenu: {fileID: 0}
   currentMenu: {fileID: 469775916}
-  saveLoadSystem: {fileID: 0}
   menuCanvas: {fileID: 0}
   decisionCanvas: {fileID: 0}
   player: {fileID: 0}
@@ -10160,7 +10186,6 @@ MonoBehaviour:
   scene: 
   lastMenu: {fileID: 0}
   currentMenu: {fileID: 0}
-  saveLoadSystem: {fileID: 0}
   menuCanvas: {fileID: 0}
   decisionCanvas: {fileID: 0}
   player: {fileID: 0}
@@ -11506,12 +11531,12 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_PointAction: {fileID: 1708664474070131147, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_MoveAction: {fileID: 3964276820482954318, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_SubmitAction: {fileID: -1088683116234827235, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_CancelAction: {fileID: 2866474142270467604, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_LeftClickAction: {fileID: -2789760150326113685, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_PointAction: {fileID: 1708664474070131147, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_MoveAction: {fileID: 3964276820482954318, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_SubmitAction: {fileID: -1088683116234827235, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_CancelAction: {fileID: 2866474142270467604, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_LeftClickAction: {fileID: -2789760150326113685, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
   m_ScrollWheelAction: {fileID: 0}
@@ -12346,7 +12371,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A
+  m_Text: B
 --- !u!222 &1539629779
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12426,7 +12451,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Long Tap Q
+  m_Text: Long Tap RMB
 --- !u!222 &1553775842
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13122,7 +13147,6 @@ MonoBehaviour:
   scene: 
   lastMenu: {fileID: 644108473}
   currentMenu: {fileID: 159823015}
-  saveLoadSystem: {fileID: 0}
   menuCanvas: {fileID: 0}
   decisionCanvas: {fileID: 0}
   player: {fileID: 0}
@@ -14400,7 +14424,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: E
+  m_Text: Mayusculas
 --- !u!222 &1790175201
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15610,7 +15634,6 @@ MonoBehaviour:
   scene: 
   lastMenu: {fileID: 644108473}
   currentMenu: {fileID: 1925073253}
-  saveLoadSystem: {fileID: 0}
   menuCanvas: {fileID: 0}
   decisionCanvas: {fileID: 0}
   player: {fileID: 0}
@@ -16131,7 +16154,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Long Tap RT
+  m_Text: Long Tap ZR
 --- !u!222 &2036631787
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16514,12 +16537,12 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_PointAction: {fileID: 1708664474070131147, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_MoveAction: {fileID: 3964276820482954318, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_SubmitAction: {fileID: -1088683116234827235, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_CancelAction: {fileID: 2866474142270467604, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_LeftClickAction: {fileID: -2789760150326113685, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_PointAction: {fileID: 1708664474070131147, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_MoveAction: {fileID: 3964276820482954318, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_SubmitAction: {fileID: -1088683116234827235, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_CancelAction: {fileID: 2866474142270467604, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_LeftClickAction: {fileID: -2789760150326113685, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
   m_ScrollWheelAction: {fileID: 0}
@@ -17261,12 +17284,12 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_PointAction: {fileID: 1708664474070131147, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_MoveAction: {fileID: 3964276820482954318, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_SubmitAction: {fileID: -1088683116234827235, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_CancelAction: {fileID: 2866474142270467604, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
-  m_LeftClickAction: {fileID: -2789760150326113685, guid: f80b1dd9bfc8992449f27f7a8d9a518a, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_PointAction: {fileID: 1708664474070131147, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_MoveAction: {fileID: 3964276820482954318, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_SubmitAction: {fileID: -1088683116234827235, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_CancelAction: {fileID: 2866474142270467604, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
+  m_LeftClickAction: {fileID: -2789760150326113685, guid: bc86d015065b7aa438ed4147f2f3e8a8, type: 3}
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
   m_ScrollWheelAction: {fileID: 0}
@@ -17700,7 +17723,6 @@ MonoBehaviour:
   scene: 
   lastMenu: {fileID: 644108473}
   currentMenu: {fileID: 1452810241}
-  saveLoadSystem: {fileID: 0}
   menuCanvas: {fileID: 0}
   decisionCanvas: {fileID: 0}
   player: {fileID: 0}
