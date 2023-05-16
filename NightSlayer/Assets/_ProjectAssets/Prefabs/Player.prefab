@@ -2921,7 +2921,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Long Tap ZR
+  m_Text: Long Tap RT
 --- !u!1 &2809915360692232433
 GameObject:
   m_ObjectHideFlags: 0
@@ -5696,7 +5696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4039085956868448647}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.52, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6141,7 +6141,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Left Stick
+  m_Text: Left Stick Press
 --- !u!1 &4411868472559056439
 GameObject:
   m_ObjectHideFlags: 0
@@ -6301,7 +6301,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: B
+  m_Text: A
 --- !u!1 &4452388080355921024
 GameObject:
   m_ObjectHideFlags: 0
@@ -14621,7 +14621,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Y
+  m_Text: X
 --- !u!1 &9124377157975696016
 GameObject:
   m_ObjectHideFlags: 0
