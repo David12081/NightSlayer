@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
         isPaused = false;
         playerInput = GetComponent<PlayerInput>();
         playerRebinds.LoadRebinds();
-
-        //InputSystem.RemoveLayout("SwitchProControllerHID");
     }
 
     public void OnTogglePause(InputAction.CallbackContext value)
