@@ -119,18 +119,6 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.SetInt("resolutionIndex", resolutionIndex);
     }
 
-    public void SetVSync(bool isVSyncOn)
-    {
-        if(isVSyncOn)
-        {
-            QualitySettings.vSyncCount = 1;
-        }
-        else
-        {
-            QualitySettings.vSyncCount = 0;
-        }
-    }
-
     public void SetFramerate(int framerateIndex)
     {
         PlayerPrefs.SetInt("framerateIndex", framerateIndex);
