@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoomType : MonoBehaviour
 {
     [SerializeField] private int type;
-    private new Collider2D collider2D;
+    private Collider2D platformCollider;
 
     public int Type
     {
@@ -18,14 +18,14 @@ public class RoomType : MonoBehaviour
     {
         levelGeneration = GameObject.Find("Level Generation").GetComponent<LevelGeneration>();
         levelGeneration.spawnedRooms.Add(this.gameObject);
-        collider2D = this.gameObject.GetComponent<Collider2D>();
+        platformCollider = this.gameObject.GetComponent<Collider2D>();
     }
 
     private void Update()
     {
         if(levelGeneration.StopGeneration)
         {
-            collider2D.enabled = false;
+            platformCollider.enabled = false;
         }
     }
 
