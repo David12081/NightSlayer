@@ -82,11 +82,13 @@ public class Projectile : MonoBehaviour
         }        
     }
 
-    public void FireProjectile(float speed, float travelDistance, float damage)
+    public void FireProjectile(float speed, float travelDistance, int damage, int knockbackForceX, int knockbackForceY)
     {
         this.speed = speed;
         this.travelDistance = travelDistance;
         attackDetails.damageAmount = damage;
+        attackDetails.knockbackForceX = knockbackForceX;
+        attackDetails.knockbackForceY = knockbackForceY;
     }
 
     private void OnDrawGizmos()

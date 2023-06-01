@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public struct AttackDetails
 {
     public Vector3 position;
-    public float damageAmount;
+    public int damageAmount;
     public float stunDamageAmount;
     public int knockbackForceX;
     public int knockbackForceY;

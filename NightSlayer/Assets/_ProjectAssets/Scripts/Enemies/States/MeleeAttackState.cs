@@ -23,6 +23,8 @@ public class MeleeAttackState : AttackState
         base.Enter();
 
         attackDetails.damageAmount = stateData.attackDamage;
+        attackDetails.knockbackForceX = stateData.knockbackForceX;
+        attackDetails.knockbackForceY = stateData.knockbackForceY;
         attackDetails.position = entity.transform.position;
     }
 
