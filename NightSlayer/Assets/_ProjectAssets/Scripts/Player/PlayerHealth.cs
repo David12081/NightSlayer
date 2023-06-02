@@ -39,10 +39,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if(!invincible)
         {
+            Knockback(attackDetails);
             _currentHealth -= attackDetails.damageAmount;
             healthBar.fillAmount = _currentHealth / _maxHealth;
             StartCoroutine(DamageBlink());
-            Knockback(attackDetails);
             CinemachineShake.Instance.ShakeCamera(0.5f, 0.1f);
             HitStopController.Instance.Stop(0.1f);
             if (CurrentHealth <= 0)
@@ -61,7 +61,8 @@ public class PlayerHealth : MonoBehaviour
     public void Knockback(AttackDetails attackDetails)
     {
         Vector2 dir = rb.transform.position - attackDetails.position;
-        rb.velocity = new Vector2(dir.x * attackDetails.knockbackForceX, attackDetails.knockbackForceY);
+        Vector2 impulse = new Vector2(dir.x * attackDetails.knockbackForceX, attackDetails.knockbackForceY);
+        rb.velocity = impulse;
     }
 
     IEnumerator DamageBlink()

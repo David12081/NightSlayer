@@ -35,8 +35,8 @@ public class AudioManager : MonoBehaviour
             s.source.playOnAwake = s.playOnAwake;
         }
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     public void Play(string name)

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 520525365201432645, guid: 638c43f630efc384e88c8317f475f965, type: 3}
   projectileDamage: 10
-  knockbackForceX: 35
-  knockbackForceY: 25
+  knockbackForceX: 50
+  knockbackForceY: 15
   projectileSpeed: 12
   projectileTravelDistance: 8
