@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int _currentHealth;
-    [SerializeField] private int _maxHealth;
+    [SerializeField] private float _currentHealth;
+    [SerializeField] private float _maxHealth;
     [SerializeField] SpriteRenderer _spriteRenderer;
-    [SerializeField] private UnityEvent OnZeroHealth;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private UnityEvent OnZeroHealth;
     bool invincible;
 
     public void Start()
@@ -17,15 +19,17 @@ public class PlayerHealth : MonoBehaviour
         _currentHealth = _maxHealth;
         _spriteRenderer.color = Color.white;
         invincible = false;
+
+        healthBar.fillAmount = _currentHealth / _maxHealth;
     }
 
-    public int CurrentHealth
+    public float CurrentHealth
     {
         get => _currentHealth;
         set => _currentHealth = value;
     }
 
-    public int MaxHealth
+    public float MaxHealth
     {
         get => _maxHealth;
         set => _maxHealth = value;
@@ -36,8 +40,11 @@ public class PlayerHealth : MonoBehaviour
         if(!invincible)
         {
             _currentHealth -= attackDetails.damageAmount;
+            healthBar.fillAmount = _currentHealth / _maxHealth;
             StartCoroutine(DamageBlink());
             Knockback(attackDetails);
+            CinemachineShake.Instance.ShakeCamera(0.5f, 0.1f);
+            HitStopController.Instance.Stop(0.1f);
             if (CurrentHealth <= 0)
             {
                 OnZeroHealth?.Invoke();

@@ -6,7 +6,7 @@ using UnityEngine;
 public class D_MeleeAttack : ScriptableObject
 {
     public float attackRadius = 0.5f;
-    public int attackDamage = 10;
+    public float attackDamage = 10f;
     public int knockbackForceX = 1;
     public int knockbackForceY = 1;
 

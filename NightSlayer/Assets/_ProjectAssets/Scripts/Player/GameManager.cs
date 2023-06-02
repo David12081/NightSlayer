@@ -45,10 +45,14 @@ public class GameManager : MonoBehaviour
         {
             case true:
                 newTimeScale = 0f;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 break;
 
             case false:
                 newTimeScale = 1f;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 break;
         }
 
