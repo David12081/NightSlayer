@@ -37,6 +37,8 @@ public class LevelGeneration : MonoBehaviour
 
     private bool spawned = false;
 
+    [SerializeField] AudioClip audioClip;
+
     private void Start()
     {
         int randStartingPos = Random.Range(0, startingPositions.Length);
@@ -46,6 +48,8 @@ public class LevelGeneration : MonoBehaviour
         direction = Random.Range(1, 6);
 
         spawned = false;
+
+        FindObjectOfType<AudioManager>().ChangeMusic(audioClip);
     }
 
     private void Update()
@@ -82,19 +86,16 @@ public class LevelGeneration : MonoBehaviour
         if (roomType.Type == 0)
         {
             Instantiate(initialRooms[0], spawnedRooms[0].transform.position, Quaternion.identity);
-            Debug.Log(roomType.Type);
             Destroy(roomType.gameObject);
         }
         else if(roomType.Type == 1)
         {
             Instantiate(initialRooms[1], spawnedRooms[0].transform.position, Quaternion.identity);
-            Debug.Log(roomType.Type);
             Destroy(roomType.gameObject);
         }
         else if(roomType.Type == 3)
         {
             Instantiate(initialRooms[2], spawnedRooms[0].transform.position, Quaternion.identity);
-            Debug.Log(roomType.Type);
             Destroy(roomType.gameObject);
         }
         yield return new WaitForSeconds(1f);

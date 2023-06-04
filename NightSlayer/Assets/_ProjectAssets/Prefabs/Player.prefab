@@ -11312,11 +11312,11 @@ MonoBehaviour:
   _currentHealth: 200
   _maxHealth: 200
   _spriteRenderer: {fileID: 6670023173416801712}
+  rb: {fileID: 6670023173416801711}
+  healthBar: {fileID: 5895222618134399664}
   OnZeroHealth:
     m_PersistentCalls:
       m_Calls: []
-  rb: {fileID: 6670023173416801711}
-  healthBar: {fileID: 5895222618134399664}
 --- !u!114 &2827324811123760679
 MonoBehaviour:
   m_ObjectHideFlags: 0

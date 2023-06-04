@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private UnityEvent OnZeroHealth;
     bool invincible;
 
+    private AudioManager audioManager;
+
     public void Start()
     {
         _currentHealth = _maxHealth;
@@ -21,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
         invincible = false;
 
         healthBar.fillAmount = _currentHealth / _maxHealth;
+
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public float CurrentHealth
