@@ -82,16 +82,19 @@ public class LevelGeneration : MonoBehaviour
         if (roomType.Type == 0)
         {
             Instantiate(initialRooms[0], spawnedRooms[0].transform.position, Quaternion.identity);
+            Debug.Log(roomType.Type);
             Destroy(roomType.gameObject);
         }
         else if(roomType.Type == 1)
         {
             Instantiate(initialRooms[1], spawnedRooms[0].transform.position, Quaternion.identity);
+            Debug.Log(roomType.Type);
             Destroy(roomType.gameObject);
         }
         else if(roomType.Type == 3)
         {
             Instantiate(initialRooms[2], spawnedRooms[0].transform.position, Quaternion.identity);
+            Debug.Log(roomType.Type);
             Destroy(roomType.gameObject);
         }
         yield return new WaitForSeconds(1f);
