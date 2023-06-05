@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 16406052}
   - component: {fileID: 16406051}
   - component: {fileID: 16406050}
-  - component: {fileID: 16406054}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -350,35 +349,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16406048}
   m_CullTransparentMesh: 1
---- !u!114 &16406054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16406048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 9
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1006575402}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: Play
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: ChangeSelection
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &164647843
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,7 +614,6 @@ GameObject:
   - component: {fileID: 614402581}
   - component: {fileID: 614402582}
   - component: {fileID: 614402580}
-  - component: {fileID: 614402585}
   m_Layer: 5
   m_Name: CreditsButton
   m_TagString: Untagged
@@ -858,35 +827,6 @@ RectTransform:
   m_AnchoredPosition: {x: -742, y: -317.725}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &614402585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614402579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 9
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1006575402}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: Play
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: ChangeSelection
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &659739093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,14 +1027,6 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 7d6b4b78544fac44181820ccbc2f6346, type: 3}
     audioMixerGroup: {fileID: -3521406878246187854, guid: 01169e3c15052f147ac678e335cad8b5, type: 2}
     name: Button
-    volume: 1
-    pitch: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: e43a45c5f7e1c774c9a1d7ab6f0d32ad, type: 3}
-    audioMixerGroup: {fileID: -3521406878246187854, guid: 01169e3c15052f147ac678e335cad8b5, type: 2}
-    name: ChangeSelection
     volume: 1
     pitch: 1
     loop: 0
@@ -1433,7 +1365,6 @@ GameObject:
   - component: {fileID: 1528230904}
   - component: {fileID: 1528230903}
   - component: {fileID: 1528230902}
-  - component: {fileID: 1528230906}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1647,35 +1578,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528230900}
   m_CullTransparentMesh: 1
---- !u!114 &1528230906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528230900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 9
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1006575402}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: Play
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: ChangeSelection
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1601160935
 GameObject:
   m_ObjectHideFlags: 0
@@ -2106,18 +2008,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1006575402}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: SpookyGong
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1601160939}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: Play
@@ -2128,6 +2018,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Play_TITLE
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1006575402}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SpookyGong
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1809204089}
@@ -2308,7 +2210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 9
+  - eventID: 15
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -2321,7 +2223,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: ChangeSelection
+            m_StringArgument: SpookyGong
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1915827114

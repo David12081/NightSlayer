@@ -55821,7 +55821,7 @@ GameObject:
   - component: {fileID: 8266761011631743540}
   - component: {fileID: 8266761011631743541}
   m_Layer: 8
-  m_Name: Room LR Initiall
+  m_Name: Room LR Initial
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

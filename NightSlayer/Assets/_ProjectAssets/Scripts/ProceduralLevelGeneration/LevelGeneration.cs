@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelGeneration : MonoBehaviour
 {
     [SerializeField] GameObject playerPosMinimap;
+    [SerializeField] AudioClip audioClip;
     [SerializeField] private Transform[] startingPositions;
     [SerializeField] private GameObject[] rooms; // index 0 -> LR, index 1 -> LRB, index 2 -> LRT, index 3 -> LRTB
 
@@ -34,10 +35,9 @@ public class LevelGeneration : MonoBehaviour
     [SerializeField] private GameObject[] prefabs;
 
     [SerializeField] private GameObject[] initialRooms;
+    [SerializeField] private GameObject[] finalRooms;
 
     private bool spawned = false;
-
-    [SerializeField] AudioClip audioClip;
 
     private void Start()
     {
@@ -88,12 +88,12 @@ public class LevelGeneration : MonoBehaviour
             Instantiate(initialRooms[0], spawnedRooms[0].transform.position, Quaternion.identity);
             Destroy(roomType.gameObject);
         }
-        else if(roomType.Type == 1)
+        if(roomType.Type == 1)
         {
             Instantiate(initialRooms[1], spawnedRooms[0].transform.position, Quaternion.identity);
             Destroy(roomType.gameObject);
         }
-        else if(roomType.Type == 3)
+        if(roomType.Type == 3)
         {
             Instantiate(initialRooms[2], spawnedRooms[0].transform.position, Quaternion.identity);
             Destroy(roomType.gameObject);
@@ -104,6 +104,29 @@ public class LevelGeneration : MonoBehaviour
         CinemachineShake.Instance.cinemachineConfiner.m_BoundingShape2D = spawnedRooms[spawnedRooms.Count - 1].GetComponentInChildren<PolygonCollider2D>();
         spawnedRooms[spawnedRooms.Count - 1].gameObject.transform.Find("MinimapIcon").gameObject.SetActive(true);
         Instantiate(playerPosMinimap, new Vector3(spawnedRooms[spawnedRooms.Count - 1].transform.position.x, spawnedRooms[spawnedRooms.Count - 1].transform.position.y, playerPosMinimap.transform.position.z), Quaternion.identity);
+
+        RoomType finalRoom = spawnedRooms[spawnedRooms.Count - 2].GetComponent<RoomType>();
+        if(finalRoom.Type == 0)
+        {
+            Instantiate(finalRooms[0], spawnedRooms[spawnedRooms.Count - 2].transform.position, Quaternion.identity);
+            Destroy(finalRoom.gameObject);
+        }
+        if (finalRoom.Type == 1)
+        {
+            Instantiate(finalRooms[1], spawnedRooms[spawnedRooms.Count - 2].transform.position, Quaternion.identity);
+            Destroy(finalRoom.gameObject);
+        }
+        if (finalRoom.Type == 2)
+        {
+            Instantiate(finalRooms[2], spawnedRooms[spawnedRooms.Count - 2].transform.position, Quaternion.identity);
+            Destroy(finalRoom.gameObject);
+        }
+        if (finalRoom.Type == 3)
+        {
+            Instantiate(finalRooms[3], spawnedRooms[spawnedRooms.Count - 2].transform.position, Quaternion.identity);
+            Destroy(finalRoom.gameObject);
+        }
+
         Destroy(this.gameObject);
     }
 
