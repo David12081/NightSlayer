@@ -122,7 +122,7 @@ public class MeleeBaseState : State
                     HitStopController.Instance.Stop(0.1f);
 
                     GameObject.Instantiate(HitEffectPrefab, collidersToDamage[i].transform);
-                    Debug.Log("Enemy Has Taken: " + attackDamage + " Damage");
+                    //Debug.Log("Enemy Has Taken: " + attackDamage + " Damage");
                     collidersDamaged.Add(collidersToDamage[i]);
 
                     if (stateMachine.CurrentState.GetType() == typeof(AirDownMeleeState))
