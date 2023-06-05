@@ -7,14 +7,18 @@ public class EnemyRoom : MonoBehaviour
     [SerializeField] private Collider2D _collider;
     [SerializeField] private AudioClip audioClip;
     private bool playerOnPlatform = false;
-    private PlayerScript playerScript;
+
+    [SerializeField] private List<GameObject> enemies;
+    [SerializeField] private Transform[] spawnPosition;
 
     private void Update()
     {
         if (playerOnPlatform)
         {
             _collider.enabled = false;
-            FindObjectOfType<AudioManager>().ChangeMusic(audioClip);
+            //FindObjectOfType<AudioManager>().ChangeMusic(audioClip);
+
+            SpawnEnemies();
         }
     }
 
@@ -23,7 +27,6 @@ public class EnemyRoom : MonoBehaviour
         var player = other.gameObject.GetComponent<PlayerScript>();
         if (player != null)
         {
-            playerScript = player;
             playerOnPlatform = value;
         }
     }
@@ -36,5 +39,13 @@ public class EnemyRoom : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         SetPlayerOnPlatform(collision, false);
+    }
+
+    void SpawnEnemies()
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            Instantiate(enemies[i], spawnPosition[i].position, Quaternion.identity);
+        }
     }
 }

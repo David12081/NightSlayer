@@ -49,7 +49,7 @@ public class LevelGeneration : MonoBehaviour
 
         spawned = false;
 
-        FindObjectOfType<AudioManager>().ChangeMusic(audioClip);
+        //FindObjectOfType<AudioManager>().ChangeMusic(audioClip);
     }
 
     private void Update()

@@ -9814,6 +9814,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3168013304006251858}
+  - component: {fileID: 143294754772271265}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -9843,6 +9844,21 @@ RectTransform:
   m_AnchoredPosition: {x: 289, y: -127}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &143294754772271265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5907935775692123936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4cd22e792b68c648bf51bc4954574bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeMagnitude: 8
+  shakeTime: 0.15
+  rectTransform: {fileID: 3168013304006251858}
 --- !u!1 &6066822346300131418
 GameObject:
   m_ObjectHideFlags: 0
@@ -11314,6 +11330,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 6670023173416801712}
   rb: {fileID: 6670023173416801711}
   healthBar: {fileID: 5895222618134399664}
+  healthBarAnim: {fileID: 143294754772271265}
   OnZeroHealth:
     m_PersistentCalls:
       m_Calls: []

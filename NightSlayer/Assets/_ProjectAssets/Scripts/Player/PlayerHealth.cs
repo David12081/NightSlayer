@@ -11,7 +11,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Image healthBar;
+    [SerializeField] private HealthbarAnim healthBarAnim;
     [SerializeField] private UnityEvent OnZeroHealth;
+    
     bool invincible;
 
     private AudioManager audioManager;
@@ -47,8 +49,9 @@ public class PlayerHealth : MonoBehaviour
             _currentHealth -= attackDetails.damageAmount;
             healthBar.fillAmount = _currentHealth / _maxHealth;
             StartCoroutine(DamageBlink());
-            CinemachineShake.Instance.ShakeCamera(0.5f, 0.1f);
+            CinemachineShake.Instance.ShakeCamera(0.8f, 0.1f);
             HitStopController.Instance.Stop(0.1f);
+            healthBarAnim.ShakeIt();
             if (CurrentHealth <= 0)
             {
                 OnZeroHealth?.Invoke();
