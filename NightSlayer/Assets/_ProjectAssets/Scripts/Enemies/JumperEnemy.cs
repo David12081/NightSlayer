@@ -1,9 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class JumperEnemy : MonoBehaviour
 {
+    [Header("Health")]
+    [SerializeField] private float _currentHealth;
+    [SerializeField] private float _maxHealth;
+    private Coroutine flashRoutine;
+    private Material originalMaterial;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Material flashMaterial;
+    [SerializeField] float flashDuration;
+    [SerializeField] GameObject hitParticle;
+    [SerializeField] GameObject deathBloodParticle;
+
+    [Header("Attack")]
+    [SerializeField] Transform attackPosition;
+    [SerializeField] float attackRadius;
+    [SerializeField] LayerMask whatIsPlayer;
+    [SerializeField] float damageAmount;
+    [SerializeField] int knockbackForceX;
+    [SerializeField] int KnockbackForceY;
+    AttackDetails attackDetails;
+
     [Header("For Patrolling")]
     [SerializeField] float moveSpeed;
     private float moveDirection = 1;
@@ -33,6 +54,13 @@ public class JumperEnemy : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player(Clone)").gameObject.transform;
+        _currentHealth = _maxHealth;
+        originalMaterial = spriteRenderer.material;
+
+        attackDetails.position = this.gameObject.transform.position;
+        attackDetails.damageAmount = damageAmount;
+        attackDetails.knockbackForceX = knockbackForceX;
+        attackDetails.knockbackForceY = KnockbackForceY;
     }
 
     void FixedUpdate()
@@ -100,6 +128,56 @@ public class JumperEnemy : MonoBehaviour
         enemyAnim.SetBool("isGrounded", isGrounded);
     }
 
+    public void TriggerAttack()
+    {
+        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attackPosition.position, attackRadius, whatIsPlayer);
+
+        foreach (Collider2D collider in detectedObjects)
+        {
+            collider.transform.SendMessage("Damage", attackDetails);
+            collider.transform.SendMessage("Knockback", attackDetails);
+        }
+    }
+
+    public void Damage(AttackDetails attackDetails)
+    {
+        _currentHealth -= attackDetails.damageAmount;
+
+        Knockback(attackDetails);
+        Flash();
+
+        Instantiate(hitParticle, transform.position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
+
+        if (_currentHealth <= 0)
+        {
+            GameObject.Instantiate(deathBloodParticle, this.transform.position, deathBloodParticle.transform.rotation);
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void Knockback(AttackDetails attackDetails)
+    {
+        Vector2 dir = enemyRB.transform.position - attackDetails.position;
+        Vector2 impulse = new Vector2(dir.x * attackDetails.knockbackForceX, attackDetails.knockbackForceY);
+        enemyRB.velocity = impulse;
+    }
+
+    public void Flash()
+    {
+        if (flashRoutine != null)
+        {
+            StopCoroutine(flashRoutine);
+        }
+        flashRoutine = StartCoroutine(FlashRoutine());
+    }
+
+    IEnumerator FlashRoutine()
+    {
+        spriteRenderer.material = flashMaterial;
+        yield return new WaitForSeconds(flashDuration);
+        spriteRenderer.material = originalMaterial;
+        flashRoutine = null;
+    }
 
     private void OnDrawGizmosSelected()
     {
@@ -113,5 +191,7 @@ public class JumperEnemy : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, lineOfSite);
 
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(attackPosition.position, attackRadius);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -43,9 +44,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void Damage(AttackDetails attackDetails)
     {
-        if(!invincible)
+        if(invincible == false)
         {
-            Knockback(attackDetails);
+            //Knockback(attackDetails);
             _currentHealth -= attackDetails.damageAmount;
             healthBar.fillAmount = _currentHealth / _maxHealth;
             StartCoroutine(DamageBlink());
@@ -75,7 +76,7 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator DamageBlink()
     {
         invincible = true;
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
         {
             _spriteRenderer.color = Color.white;
             yield return new WaitForSeconds(0.15f);

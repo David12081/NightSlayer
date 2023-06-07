@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRadius: 0.5
   attackDamage: 10
-  knockbackForceX: 35
+  knockbackForceX: 30
   knockbackForceY: 15
   whatIsPlayer:
     serializedVersion: 2

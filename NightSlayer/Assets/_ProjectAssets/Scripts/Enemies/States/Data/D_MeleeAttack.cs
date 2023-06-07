@@ -7,8 +7,8 @@ public class D_MeleeAttack : ScriptableObject
 {
     public float attackRadius = 0.5f;
     public float attackDamage = 10f;
-    public int knockbackForceX = 1;
-    public int knockbackForceY = 1;
+    public int knockbackForceX = 20;
+    public int knockbackForceY = 15;
 
     public LayerMask whatIsPlayer;
 }

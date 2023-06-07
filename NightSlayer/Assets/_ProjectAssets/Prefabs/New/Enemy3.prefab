@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 8498710197702773092}
   - component: {fileID: 8498710197702773091}
   - component: {fileID: 8498710197702773090}
-  m_Layer: 0
+  - component: {fileID: -8781845052905587989}
+  m_Layer: 7
   m_Name: Enemy3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,6 +161,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5bcc439581dfb4fb7e73f807252e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentHealth: 100
+  _maxHealth: 100
+  spriteRenderer: {fileID: 8498710197702773094}
+  flashMaterial: {fileID: 2100000, guid: dcf4d8da6ba43104d9ae8c5147a60377, type: 2}
+  flashDuration: 0.125
+  hitParticle: {fileID: 6240072112886026631, guid: d3ad3f1375e0d114ca19695641fceb61, type: 3}
+  deathBloodParticle: {fileID: 5096148057906189823, guid: 4a122dcc68153794295f6953dd91521e, type: 3}
+  attackPosition: {fileID: 8498710197702773095}
+  attackRadius: 3
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 8
+  damageAmount: 10
+  knockbackForceX: 5
+  KnockbackForceY: 5
   moveSpeed: 5
   groundCheckPoint: {fileID: 8498710199325675036}
   wallCheckPoint: {fileID: 8498710197943026618}
@@ -176,6 +192,19 @@ MonoBehaviour:
     m_Bits: 8
   enemyAnim: {fileID: 8498710197702773093}
   enemyRB: {fileID: 8498710197702773091}
+--- !u!114 &-8781845052905587989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8498710197702773089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba8ca0276b6c574fa809eb2469b93b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _teamIndex: 2
 --- !u!1 &8498710197943026617
 GameObject:
   m_ObjectHideFlags: 0
