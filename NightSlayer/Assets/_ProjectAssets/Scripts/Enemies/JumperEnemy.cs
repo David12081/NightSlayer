@@ -47,6 +47,7 @@ public class JumperEnemy : MonoBehaviour
     [SerializeField] Vector2 lineOfSite;
     [SerializeField] LayerMask playerLayer;
     private bool canSeePlayer;
+
     [Header("Other")]
     [SerializeField] Animator enemyAnim;
     [SerializeField] Rigidbody2D enemyRB;
