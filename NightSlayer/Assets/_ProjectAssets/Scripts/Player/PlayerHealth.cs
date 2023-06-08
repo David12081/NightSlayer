@@ -74,14 +74,15 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator DamageBlink()
     {
         invincible = true;
+        Color color = _spriteRenderer.color;
         for (int i = 0; i < 3; i++)
         {
-            _spriteRenderer.color = Color.white;
+            color.a = 1;
             yield return new WaitForSeconds(0.15f);
-            _spriteRenderer.color = Color.black;
+            color.a = 0;
             yield return new WaitForSeconds(0.15f);
         }
-        _spriteRenderer.color = Color.white;
+        color.a = 1;
         invincible = false;
     }
 }

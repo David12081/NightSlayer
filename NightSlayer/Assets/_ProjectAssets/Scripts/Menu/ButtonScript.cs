@@ -32,6 +32,11 @@ public class ButtonScript : MonoBehaviour
         decisionCanvas.SetActive(false);
     }
 
+    public void NewGameButton()
+    {
+        FindObjectOfType<AudioManager>().Play("SpookyGong");
+    }
+
     public void GoToScene(string scene)
     {
         SceneManager.LoadScene(scene);

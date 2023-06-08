@@ -16,9 +16,16 @@ public class FlyingEnemy : MonoBehaviour
     [SerializeField] int minScore;
     [SerializeField] int maxScore;
 
-    Transform target;
     [Header("Pathfinding")]
-    //[SerializeField] float speed = 200f;
+    [SerializeField] float speed;
+    [SerializeField] float stoppingDistance;
+    [SerializeField] float retreatDistance;
+    Transform player;
+
+    [Header("Attacking")]
+    [SerializeField] float startTimeBtwShots;
+    [SerializeField] GameObject projectile;
+    float timeBtwShots;
 
     [Header("Other")]
     [SerializeField] Rigidbody2D rb;
@@ -26,14 +33,46 @@ public class FlyingEnemy : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.Find("Player(Clone)").gameObject.transform;
+        player = GameObject.Find("Player(Clone)").gameObject.transform;
         _currentHealth = _maxHealth;
         originalMaterial = spriteRenderer.material;
+
+        timeBtwShots = startTimeBtwShots;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        if(Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        }
+        else if(Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+        {
+            transform.position = this.transform.position;
+        }
+        else if(Vector2.Distance(transform.position, player.position) < retreatDistance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+        }
 
+        if(transform.position.x - player.position.x < -0.01f)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if(transform.position.x - player.position.x > 0.01f)
+        {
+            spriteRenderer.flipX = true;
+        }
+
+        if(timeBtwShots <= 0)
+        {
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            timeBtwShots = startTimeBtwShots;
+        }
+        else
+        {
+            timeBtwShots -= Time.deltaTime;
+        }
     }
 
     public void Damage(AttackDetails attackDetails)
