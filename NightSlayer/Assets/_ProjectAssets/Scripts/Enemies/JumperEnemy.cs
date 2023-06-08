@@ -15,6 +15,8 @@ public class JumperEnemy : MonoBehaviour
     [SerializeField] float flashDuration;
     [SerializeField] GameObject hitParticle;
     [SerializeField] GameObject deathBloodParticle;
+    [SerializeField] int minScore;
+    [SerializeField] int maxScore;
 
     [Header("Attack")]
     [SerializeField] Transform attackPosition;
@@ -151,6 +153,11 @@ public class JumperEnemy : MonoBehaviour
 
         if (_currentHealth <= 0)
         {
+            int randomScore = Random.Range(minScore, maxScore);
+            int gameScore = PlayerPrefs.GetInt("GameScore");
+            PlayerPrefs.SetInt("GameScore", gameScore + randomScore);
+            Score.Instance.UpdateText();
+
             GameObject.Instantiate(deathBloodParticle, this.transform.position, deathBloodParticle.transform.rotation);
             Destroy(this.gameObject);
         }

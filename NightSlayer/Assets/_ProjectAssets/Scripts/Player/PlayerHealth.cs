@@ -17,8 +17,6 @@ public class PlayerHealth : MonoBehaviour
     
     bool invincible;
 
-    private AudioManager audioManager;
-
     public void Start()
     {
         _currentHealth = _maxHealth;
@@ -26,8 +24,6 @@ public class PlayerHealth : MonoBehaviour
         invincible = false;
 
         healthBar.fillAmount = _currentHealth / _maxHealth;
-
-        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public float CurrentHealth
@@ -60,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void GainHealth(int gainAmount)
+    public void GainHealth(float gainAmount)
     {
         _currentHealth += gainAmount;
         _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);

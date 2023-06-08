@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1917bc9a367d14ba890b8deed9360c, type: 3}
   m_Name: E1_DeadStateData
   m_EditorClassIdentifier: 
-  deathChunkParticle: {fileID: 1962614393226834858, guid: 3d13ef1f52d189642930444f906fc622,
-    type: 3}
-  deathBloodParticle: {fileID: 5096148057906189823, guid: 4a122dcc68153794295f6953dd91521e,
-    type: 3}
+  deathChunkParticle: {fileID: 1962614393226834858, guid: 3d13ef1f52d189642930444f906fc622, type: 3}
+  deathBloodParticle: {fileID: 5096148057906189823, guid: 4a122dcc68153794295f6953dd91521e, type: 3}
+  minScore: 100
+  maxScore: 301

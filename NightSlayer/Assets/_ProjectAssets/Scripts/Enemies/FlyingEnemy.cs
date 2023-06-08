@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.SocialPlatforms;
 
 public class FlyingEnemy : MonoBehaviour
 {
@@ -14,8 +15,11 @@ public class FlyingEnemy : MonoBehaviour
     [SerializeField] float flashDuration;
     [SerializeField] GameObject hitParticle;
     [SerializeField] GameObject deathBloodParticle;
+    [SerializeField] int minScore;
+    [SerializeField] int maxScore;
 
     Transform target;
+    [Header("Pathfinding")]
     [SerializeField] float speed = 200f;
     [SerializeField] float nextWaypointDist = 3f;
 
@@ -24,6 +28,7 @@ public class FlyingEnemy : MonoBehaviour
     bool reachedEndOfPath = false;
 
     Seeker seeker;
+    [Header("Other")]
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRenderer;
 
@@ -102,6 +107,11 @@ public class FlyingEnemy : MonoBehaviour
 
         if (_currentHealth <= 0)
         {
+            int randomScore = Random.Range(minScore, maxScore);
+            int gameScore = PlayerPrefs.GetInt("GameScore");
+            PlayerPrefs.SetInt("GameScore", gameScore + randomScore);
+            Score.Instance.UpdateText();
+
             GameObject.Instantiate(deathBloodParticle, this.transform.position, deathBloodParticle.transform.rotation);
             Destroy(this.gameObject);
         }

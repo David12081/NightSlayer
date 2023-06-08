@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: E2_MeleeAttackStateData
   m_EditorClassIdentifier: 
   attackRadius: 0.5
-  attackDamage: 10
+  attackDamage: 5
   knockbackForceX: 30
   knockbackForceY: 15
   whatIsPlayer:

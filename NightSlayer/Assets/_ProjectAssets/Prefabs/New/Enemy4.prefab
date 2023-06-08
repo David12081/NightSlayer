@@ -187,12 +187,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e626df12549b54cafb039e9b06558e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 100
-  _maxHealth: 100
+  _currentHealth: 80
+  _maxHealth: 80
   flashMaterial: {fileID: 2100000, guid: dcf4d8da6ba43104d9ae8c5147a60377, type: 2}
   flashDuration: 0.125
   hitParticle: {fileID: 6240072112886026631, guid: d3ad3f1375e0d114ca19695641fceb61, type: 3}
   deathBloodParticle: {fileID: 5096148057906189823, guid: 4a122dcc68153794295f6953dd91521e, type: 3}
+  minScore: 500
+  maxScore: 601
   speed: 400
   nextWaypointDist: 3
   rb: {fileID: 1991748544658529173}

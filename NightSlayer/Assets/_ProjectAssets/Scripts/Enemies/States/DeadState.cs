@@ -23,6 +23,11 @@ public class DeadState : EnemyState
         GameObject.Instantiate(stateData.deathBloodParticle, entity.transform.position, stateData.deathBloodParticle.transform.rotation);
         GameObject.Instantiate(stateData.deathChunkParticle, entity.transform.position, stateData.deathChunkParticle.transform.rotation);
 
+        int randomScore = Random.Range(stateData.minScore, stateData.maxScore);
+        int gameScore = PlayerPrefs.GetInt("GameScore");
+        PlayerPrefs.SetInt("GameScore", gameScore + randomScore);
+        Score.Instance.UpdateText();
+
         entity.gameObject.SetActive(false);
     }
 
