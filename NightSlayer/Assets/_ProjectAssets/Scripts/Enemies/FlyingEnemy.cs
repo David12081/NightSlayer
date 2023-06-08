@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
-using UnityEngine.SocialPlatforms;
 
 public class FlyingEnemy : MonoBehaviour
 {
@@ -20,80 +18,22 @@ public class FlyingEnemy : MonoBehaviour
 
     Transform target;
     [Header("Pathfinding")]
-    [SerializeField] float speed = 200f;
-    [SerializeField] float nextWaypointDist = 3f;
+    //[SerializeField] float speed = 200f;
 
-    Path path;
-    int currentWayPoint = 0;
-    bool reachedEndOfPath = false;
-
-    Seeker seeker;
     [Header("Other")]
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRenderer;
 
     private void Start()
     {
-        seeker = GetComponent<Seeker>();
         target = GameObject.Find("Player(Clone)").gameObject.transform;
         _currentHealth = _maxHealth;
         originalMaterial = spriteRenderer.material;
-
-        InvokeRepeating("UpdatePath", 0f, 0.5f);
-    }
-
-    void UpdatePath()
-    {
-        if(seeker.IsDone())
-        {
-            seeker.StartPath(rb.position, target.position, OnPathComplete);
-        }
-    }
-
-    void OnPathComplete(Path p)
-    {
-        if(!p.error)
-        {
-            path = p;
-            currentWayPoint = 0;
-        }
     }
 
     private void FixedUpdate()
     {
-        if(path == null)
-            return;
 
-        if(currentWayPoint >= path.vectorPath.Count)
-        {
-            reachedEndOfPath = true;
-            return;
-        }
-        else
-        {
-            reachedEndOfPath = false;
-        }
-
-        Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
-
-        rb.AddForce(force);
-
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWayPoint]);
-
-        if(distance < nextWaypointDist)
-        {
-            currentWayPoint++;
-        }
-
-        if(force.x >= 0.01f)
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if(force.x <= -0.01f)
-        {
-            spriteRenderer.flipX = true;
-        }
     }
 
     public void Damage(AttackDetails attackDetails)

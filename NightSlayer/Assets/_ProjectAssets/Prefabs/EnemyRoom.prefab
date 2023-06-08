@@ -73,3 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 1251226831064862667}
   audioClip: {fileID: 8300000, guid: f34512d06725105449a1f29af97e9ed0, type: 3}
+  audioClip1: {fileID: 8300000, guid: 95edf97824eef4d4ea31b56e6b4be7e5, type: 3}
+  enemies: []
+  spawnPosition: []
+  doors: []

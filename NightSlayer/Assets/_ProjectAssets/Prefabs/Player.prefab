@@ -11465,12 +11465,11 @@ MonoBehaviour:
   _currentHealth: 200
   _maxHealth: 200
   _spriteRenderer: {fileID: 6670023173416801712}
+  anim: {fileID: 6670023173416801713}
   rb: {fileID: 6670023173416801711}
   healthBar: {fileID: 5895222618134399664}
   healthBarAnim: {fileID: 143294754772271265}
-  OnZeroHealth:
-    m_PersistentCalls:
-      m_Calls: []
+  playerDummy: {fileID: 6670023173416801707, guid: d18634669983ed949b54ae64a3a6f381, type: 3}
 --- !u!114 &2827324811123760679
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRoom : MonoBehaviour
+public class FinalRoom : MonoBehaviour
 {
     [SerializeField] private Collider2D _collider;
     [SerializeField] private AudioClip audioClip;
@@ -13,6 +13,9 @@ public class EnemyRoom : MonoBehaviour
     [SerializeField] private Transform[] spawnPosition;
 
     [SerializeField] List<GameObject> doors;
+
+    [SerializeField] GameObject teleporter;
+    [SerializeField] Transform teleporterSpawnPos;
 
     bool enemiesSpawned;
 
@@ -39,6 +42,7 @@ public class EnemyRoom : MonoBehaviour
             {
                 OpenDoors();
                 FindObjectOfType<AudioManager>().ChangeMusic(audioClip1);
+                //Instantiate(teleporter, teleporterSpawnPos.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }

@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -10,10 +8,11 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float _currentHealth;
     [SerializeField] private float _maxHealth;
     [SerializeField] SpriteRenderer _spriteRenderer;
+    [SerializeField] Animator anim;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Image healthBar;
     [SerializeField] private HealthbarAnim healthBarAnim;
-    [SerializeField] private UnityEvent OnZeroHealth;
+    [SerializeField] GameObject playerDummy;
     
     bool invincible;
 
@@ -43,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
         if(invincible == false)
         {
             //Knockback(attackDetails);
+            anim.SetTrigger("Hurt");
             _currentHealth -= attackDetails.damageAmount;
             healthBar.fillAmount = _currentHealth / _maxHealth;
             StartCoroutine(DamageBlink());
@@ -51,7 +51,9 @@ public class PlayerHealth : MonoBehaviour
             healthBarAnim.ShakeIt();
             if (CurrentHealth <= 0)
             {
-                OnZeroHealth?.Invoke();
+                Instantiate(playerDummy, this.gameObject.transform.position, Quaternion.identity);
+                CinemachineShake.Instance.ShakeCamera(2f, 0.5f);
+                Destroy(this.gameObject, 0.25f);
             }
         }
     }
