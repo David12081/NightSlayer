@@ -11,14 +11,42 @@ public class EnemyRoom : MonoBehaviour
     [SerializeField] private List<GameObject> enemies;
     [SerializeField] private Transform[] spawnPosition;
 
+    [SerializeField] List<GameObject> doors;
+    [SerializeField] GameObject aStar;
+
+    private void Start()
+    {
+        if(aStar == null)
+        {
+            return;
+        }
+        OpenDoors();
+        aStar.gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         if (playerOnPlatform)
         {
             _collider.enabled = false;
             //FindObjectOfType<AudioManager>().ChangeMusic(audioClip);
+            CloseDoors();
+            if(aStar != null)
+            {
+                aStar.gameObject.SetActive(true);
+            }
 
             SpawnEnemies();
+        }
+
+        GameObject[] enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy");
+        if(enemiesAlive.Length >= 0)
+        {
+            OpenDoors();
+            if (aStar != null)
+            {
+                aStar.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -46,6 +74,22 @@ public class EnemyRoom : MonoBehaviour
         for (int i = 0; i < enemies.Count; i++)
         {
             Instantiate(enemies[i], spawnPosition[i].position, Quaternion.identity);
+        }
+    }
+
+    void CloseDoors()
+    {
+        for (int i = 0; i < doors.Count; i++)
+        {
+            doors[i].gameObject.SetActive(true);
+        }
+    }
+
+    void OpenDoors()
+    {
+        for (int i = 0; i < doors.Count; i++)
+        {
+            doors[i].gameObject.SetActive(false);
         }
     }
 }
