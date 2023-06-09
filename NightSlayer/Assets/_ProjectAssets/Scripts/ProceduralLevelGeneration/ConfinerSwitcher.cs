@@ -15,7 +15,6 @@ public class ConfinerSwitcher : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(AssignPlayerMinimap());
         minimapIcon.gameObject.SetActive(false);
         sceneFade = GameObject.Find("SceneFade").GetComponent<SceneFade>();
     }
@@ -24,6 +23,7 @@ public class ConfinerSwitcher : MonoBehaviour
     {
         if (playerOnCollider)
         {
+            playerPosMinimap = GameObject.Find("PlayerPositionMinimap(Clone)").gameObject;
             StartCoroutine(sceneFade.FadeOut());
             minimapIcon.gameObject.SetActive(true);
             CinemachineShake.Instance.cinemachineConfiner.InvalidatePathCache();
@@ -38,12 +38,6 @@ public class ConfinerSwitcher : MonoBehaviour
                 playerScript.gameObject.transform.position = spawnPoint.position;
             }
         }
-    }
-
-    IEnumerator AssignPlayerMinimap()
-    {
-        yield return new WaitForSeconds(6f);
-        playerPosMinimap = GameObject.Find("PlayerPositionMinimap(Clone)").gameObject;
     }
 
     void SetPlayerOnCollider(Collider2D other, bool value)
