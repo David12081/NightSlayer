@@ -1,0 +1,430 @@
+fileFormatVersion: 2
+guid: c64961d936489334db48037d5e53f7ec
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Upair-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 242
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a42a60edc94edd4c8b0f66fef4a87ae
+      internalID: -154785150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 242
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d40b8ef7a59c3347a951911118452a7
+      internalID: -1509602924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 242
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec51b777d914a64d9ce825a9a8a8ff8
+      internalID: -993611621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 242
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a378833b7569e543b053c094d687218
+      internalID: -1952468814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 242
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9febd997e583ecf45bc360e635b8aa84
+      internalID: -1481862447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 121
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f71217137e82a94a9c4238ba3aa8896
+      internalID: 231572451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 121
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16086131742ec3f438c48d5fd0cbba6e
+      internalID: -1454443872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 121
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b32afdeb5b201b4f8bf7367982177f7
+      internalID: 400879194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 121
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ccfb43748214d47bab5661e3530cba
+      internalID: 781388079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 121
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 000ca8d1774f7e54c8ec5368d30cf767
+      internalID: -840583962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6988ae044be8fc4db022c52e725ca14
+      internalID: 1020969492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b87fbe2cf886c2e45bef5d7b5324893d
+      internalID: 2091951748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 921c712c6c69b454fb040b79336d3935
+      internalID: -273899429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upair-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 0
+        width: 84
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25619835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c0b32009148824396e9930de366da6
+      internalID: -1122184226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Upair-Sheet_3: -1952468814
+      Upair-Sheet_12: -273899429
+      Upair-Sheet_1: -1509602924
+      Upair-Sheet_9: -840583962
+      Upair-Sheet_13: -1122184226
+      Upair-Sheet_10: 1020969492
+      Upair-Sheet_0: -154785150
+      Upair-Sheet_5: 231572451
+      Upair-Sheet_6: -1454443872
+      Upair-Sheet_8: 781388079
+      Upair-Sheet_4: -1481862447
+      Upair-Sheet_2: -993611621
+      Upair-Sheet_11: 2091951748
+      Upair-Sheet_7: 400879194
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

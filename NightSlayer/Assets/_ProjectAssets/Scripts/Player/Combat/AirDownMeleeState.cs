@@ -14,7 +14,7 @@ public class AirDownMeleeState : MeleeBaseState
         knockbackForceX = 1;
         knockbackForceY = 1;
         camShakeIntensity = 0.2f;
-        duration = 0.2f;
+        duration = 0.46f;
         animator.SetTrigger("AirDownAttack");
     }
 

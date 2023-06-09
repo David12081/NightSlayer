@@ -53229,22 +53229,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleporter
       objectReference: {fileID: 0}
-    - target: {fileID: 1291837177762222052, guid: fb3961aba529b204488e6ac9ca948deb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4649998578492384498, guid: fb3961aba529b204488e6ac9ca948deb, type: 3}
-      propertyPath: scenes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4649998578492384498, guid: fb3961aba529b204488e6ac9ca948deb, type: 3}
-      propertyPath: scenes.Array.data[1]
-      value: 
-      objectReference: {fileID: 102900000, guid: b219bc13ebc6e634bb852a9c4ea6c460, type: 3}
-    - target: {fileID: 4649998578492384498, guid: fb3961aba529b204488e6ac9ca948deb, type: 3}
-      propertyPath: scenes.Array.data[2]
-      value: 
-      objectReference: {fileID: 102900000, guid: 756a7c6714d265744ac5f2ca5ccced85, type: 3}
     - target: {fileID: 6186646028365997017, guid: fb3961aba529b204488e6ac9ca948deb, type: 3}
       propertyPath: m_RootOrder
       value: 16

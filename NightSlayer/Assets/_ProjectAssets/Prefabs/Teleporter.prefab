@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6186646028365997017
 Transform:
   m_ObjectHideFlags: 0
@@ -137,6 +137,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 4486849181415906174}
   scenes:
-  - {fileID: 102900000, guid: 88a1bc8307dae784591da0be6d1a4e19, type: 3}
-  - {fileID: 102900000, guid: b219bc13ebc6e634bb852a9c4ea6c460, type: 3}
-  - {fileID: 102900000, guid: 756a7c6714d265744ac5f2ca5ccced85, type: 3}
+  - ForestDay
+  - ForestNight

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
+    [SerializeField] GameObject mainCamera;
     [SerializeField] GameObject playerPosMinimap;
     [SerializeField] AudioClip audioClip;
     [SerializeField] private Transform[] startingPositions;
@@ -50,6 +51,9 @@ public class LevelGeneration : MonoBehaviour
         spawned = false;
 
         FindObjectOfType<AudioManager>().ChangeMusic(audioClip);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -99,11 +103,16 @@ public class LevelGeneration : MonoBehaviour
             Destroy(roomType.gameObject);
         }
         yield return new WaitForSeconds(1f);
-        Instantiate(prefabs[0], spawnedRooms[spawnedRooms.Count - 1].transform.position, Quaternion.identity);
-        Instantiate(prefabs[1], spawnedRooms[spawnedRooms.Count - 1].transform.position, Quaternion.identity);
+        Transform lastRoomPos = spawnedRooms[spawnedRooms.Count - 1].transform;
+        Transform spawnTimelinePos = lastRoomPos.gameObject.transform.Find("SpawnTimeline").transform;
+
+        Instantiate(prefabs[0], spawnTimelinePos.position, Quaternion.identity);
+        Instantiate(prefabs[1], lastRoomPos.position, Quaternion.identity);
         CinemachineShake.Instance.cinemachineConfiner.m_BoundingShape2D = spawnedRooms[spawnedRooms.Count - 1].GetComponentInChildren<PolygonCollider2D>();
         spawnedRooms[spawnedRooms.Count - 1].gameObject.transform.Find("MinimapIcon").gameObject.SetActive(true);
         Instantiate(playerPosMinimap, new Vector3(spawnedRooms[spawnedRooms.Count - 1].transform.position.x, spawnedRooms[spawnedRooms.Count - 1].transform.position.y, playerPosMinimap.transform.position.z), Quaternion.identity);
+        mainCamera.transform.position = new Vector3(spawnedRooms[spawnedRooms.Count - 1].transform.position.x, spawnedRooms[spawnedRooms.Count - 1].transform.position.y, -14.5f);
+        mainCamera.SetActive(true);
 
         RoomType finalRoom = spawnedRooms[spawnedRooms.Count - 2].GetComponent<RoomType>();
         if(finalRoom.Type == 0)

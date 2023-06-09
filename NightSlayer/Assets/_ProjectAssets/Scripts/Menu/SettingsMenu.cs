@@ -142,4 +142,10 @@ public class SettingsMenu : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("Button");
     }
+
+    public void ResetHighScore()
+    {
+        PlayerPrefs.SetInt("HighScore", 0);
+        PlayerPrefs.SetInt("GameScore", 0);
+    }
 }

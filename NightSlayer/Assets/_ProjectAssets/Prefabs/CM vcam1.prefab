@@ -62,7 +62,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 0
-  orthographic size: 13.8125
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -376,4 +376,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cinemachineVirtualCamera: {fileID: 9200873797169883896}
+  cam: {fileID: 9200873795755683553}
   cinemachineConfiner: {fileID: 7174997158246988392}

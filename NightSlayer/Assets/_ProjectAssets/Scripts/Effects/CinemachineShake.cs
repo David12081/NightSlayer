@@ -8,6 +8,7 @@ public class CinemachineShake : MonoBehaviour
     public static CinemachineShake Instance { get; private set; }
     
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
+    [SerializeField] Camera cam;
     public CinemachineConfiner cinemachineConfiner;
 
     private float shakeTimer;
@@ -21,16 +22,22 @@ public class CinemachineShake : MonoBehaviour
 
     private void Start()
     {
+        cam.enabled = false;
         if(cinemachineVirtualCamera.m_Follow == null)
         {
             StartCoroutine(AssignVariables());
+        }
+        else
+        {
+            cam.enabled = true;
         }
     }
 
     IEnumerator AssignVariables()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(4f);
         cinemachineVirtualCamera.m_Follow = GameObject.Find("Player(Clone)").transform;
+        cam.enabled = true;
     }
 
     public void ShakeCamera(float intensity, float time)

@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -103830301
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ae297123f091bbf4e8f1835eb98fb293, type: 3}
+  m_Sprite: {fileID: -1072514948, guid: b4d915e74f144114e8a8dce2ca7a165e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,3 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverCanvas: {fileID: 7987007531165555584, guid: 319ab4f054a962443b411263f92a6972, type: 3}
+  playerPrefab: {fileID: 6670023173416801707, guid: cb4e7d2972781f142b6a4216125a46b4, type: 3}
+  timeline: {fileID: 0}

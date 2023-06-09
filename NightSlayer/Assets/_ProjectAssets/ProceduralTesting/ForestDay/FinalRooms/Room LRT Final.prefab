@@ -48518,8 +48518,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4649998578492384498, guid: fb3961aba529b204488e6ac9ca948deb, type: 3}
       propertyPath: scenes.Array.data[1]
-      value: 
-      objectReference: {fileID: 102900000, guid: b219bc13ebc6e634bb852a9c4ea6c460, type: 3}
+      value: ForestNight
+      objectReference: {fileID: 0}
     - target: {fileID: 4649998578492384498, guid: fb3961aba529b204488e6ac9ca948deb, type: 3}
       propertyPath: scenes.Array.data[2]
       value: 

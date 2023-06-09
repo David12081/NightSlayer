@@ -14,7 +14,7 @@ public class GroundEntryState : MeleeBaseState
         knockbackForceX = 3;
         knockbackForceY = 10;
         camShakeIntensity = 0.5f;
-        duration = 0.5f;
+        duration = 0.43f;
         animator.SetTrigger("Attack" + attackIndex);
     }
 

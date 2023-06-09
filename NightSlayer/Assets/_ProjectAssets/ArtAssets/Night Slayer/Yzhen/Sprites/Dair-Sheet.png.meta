@@ -1,0 +1,430 @@
+fileFormatVersion: 2
+guid: a69404b41bcc9594694a5eb29a2b0e17
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dair-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 294
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60aa3aba5751e9c4795081575cdc7da2
+      internalID: 2050840077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 294
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ca9ce87196a9247a604476b9b65c5b
+      internalID: 1242702249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 294
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f2590ab044bb54b82f566de64bcf77
+      internalID: -822190503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 294
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 285b70561397f714fad3c666fc5c8b32
+      internalID: -322196913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 294
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36481724e9d3c52478d4f1edb6893d00
+      internalID: 1327979825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 147
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18cb4e609b5a1c4a9bda9b80c0158d7
+      internalID: 1633005635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 147
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 833c12be19748604d99c111595726b19
+      internalID: -1260666415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 147
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c452ce028929104ea7006a0202a8e4c
+      internalID: -621646328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 147
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 817801325b5b5b04dad10db2b4b30ec5
+      internalID: 161292159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 147
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f29f35a57d9854fb1d4776ce443cb8
+      internalID: -162380580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41a4ea6f3de7ab1428a3bda548212c13
+      internalID: 1592224209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 0
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f9664f884d26e4f83e9b2397e009d7
+      internalID: 318497651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 0
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04e9200f13c40714aabe55ee68c48ed7
+      internalID: -831101523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dair-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 0
+        width: 141
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30612245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55e2a90003f2d314baac2b994efa493d
+      internalID: 720212842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Dair-Sheet_12: -831101523
+      Dair-Sheet_11: 318497651
+      Dair-Sheet_0: 2050840077
+      Dair-Sheet_4: 1327979825
+      Dair-Sheet_1: 1242702249
+      Dair-Sheet_3: -322196913
+      Dair-Sheet_2: -822190503
+      Dair-Sheet_6: -1260666415
+      Dair-Sheet_5: 1633005635
+      Dair-Sheet_13: 720212842
+      Dair-Sheet_7: -621646328
+      Dair-Sheet_9: -162380580
+      Dair-Sheet_8: 161292159
+      Dair-Sheet_10: 1592224209
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

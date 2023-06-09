@@ -14,7 +14,7 @@ public class GroundDashAttackState : MeleeBaseState
         knockbackForceX = 5;
         knockbackForceY = 35;
         camShakeIntensity = 3f;
-        duration = 0.5f;
+        duration = 0.45f;
         animator.SetTrigger("DashAttack");
     }
 
