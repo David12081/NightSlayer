@@ -30,6 +30,7 @@ public class FlyingEnemy : MonoBehaviour
     [Header("Other")]
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Animator anim;
 
     private void Start()
     {
@@ -42,37 +43,49 @@ public class FlyingEnemy : MonoBehaviour
 
     private void Update()
     {
-        if(Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        if(player != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
-        else if(Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
-        {
-            transform.position = this.transform.position;
-        }
-        else if(Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-        }
+            if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            }
+            else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+            {
+                transform.position = this.transform.position;
+            }
+            else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+            }
 
-        if(transform.position.x - player.position.x < -0.01f)
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if(transform.position.x - player.position.x > 0.01f)
-        {
-            spriteRenderer.flipX = true;
-        }
+            if (transform.position.x - player.position.x < -0.01f)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else if (transform.position.x - player.position.x > 0.01f)
+            {
+                spriteRenderer.flipX = true;
+            }
 
-        if(timeBtwShots <= 0)
-        {
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            timeBtwShots = startTimeBtwShots;
+            if (timeBtwShots <= 0)
+            {
+                anim.SetTrigger("Shoot");
+                timeBtwShots = startTimeBtwShots;
+            }
+            else
+            {
+                timeBtwShots -= Time.deltaTime;
+            }
         }
         else
         {
-            timeBtwShots -= Time.deltaTime;
+            return;
         }
+    }
+
+    public void Shoot()
+    {
+        Instantiate(projectile, transform.position, Quaternion.identity);
     }
 
     public void Damage(AttackDetails attackDetails)

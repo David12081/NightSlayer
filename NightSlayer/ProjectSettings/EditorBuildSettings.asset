@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_ProjectAssets/Scenes/ForestDay.unity
     guid: 88a1bc8307dae784591da0be6d1a4e19
+  - enabled: 1
+    path: Assets/_ProjectAssets/Scenes/ForestNight.unity
+    guid: b219bc13ebc6e634bb852a9c4ea6c460
+  - enabled: 1
+    path: Assets/_ProjectAssets/Scenes/Caves.unity
+    guid: 756a7c6714d265744ac5f2ca5ccced85
   m_configObjects: {}

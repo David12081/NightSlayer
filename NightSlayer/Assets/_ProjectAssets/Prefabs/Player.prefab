@@ -11283,6 +11283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeStateMachine: {fileID: 6670023173416801706}
   playerInput: {fileID: 3357341210352411466}
+  playerHealth: {fileID: 5045571926017516582}
   m_speed: 8
   m_jumpForce: 24
   m_rollForce: 15

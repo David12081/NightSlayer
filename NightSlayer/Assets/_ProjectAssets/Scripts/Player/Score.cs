@@ -22,7 +22,6 @@ public class Score : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt("GameScore", 0);
         scoreText.text = "Score: " + PlayerPrefs.GetInt("GameScore");
     }
 

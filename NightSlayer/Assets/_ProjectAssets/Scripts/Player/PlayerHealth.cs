@@ -15,6 +15,11 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject playerDummy;
     
     bool invincible;
+    public bool Invincible
+    {
+        get => invincible; 
+        set => invincible = value;
+    }
 
     public void Start()
     {
@@ -41,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(invincible == false)
         {
-            //Knockback(attackDetails);
+            Knockback(attackDetails);
             anim.SetTrigger("Hurt");
             _currentHealth -= attackDetails.damageAmount;
             healthBar.fillAmount = _currentHealth / _maxHealth;

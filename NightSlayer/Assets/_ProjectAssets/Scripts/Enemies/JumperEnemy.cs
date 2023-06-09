@@ -97,24 +97,30 @@ public class JumperEnemy : MonoBehaviour
 
     void JumpAttack()
     {
-        float distanceFromPlayer = player.position.x - transform.position.x;
-
-        if (isGrounded)
+        if(player != null)
         {
-            enemyRB.AddForce(new Vector2(distanceFromPlayer + (5f * moveDirection), jumpHeight), ForceMode2D.Impulse);
+            float distanceFromPlayer = player.position.x - transform.position.x;
+
+            if (isGrounded)
+            {
+                enemyRB.AddForce(new Vector2(distanceFromPlayer + (5f * moveDirection), jumpHeight), ForceMode2D.Impulse);
+            }
         }
     }
 
     void FlipTowardsPlayer()
     {
-        float playerPosition = player.position.x - transform.position.x;
-        if (playerPosition < 0 && facingRight)
+        if(player != null)
         {
-            Flip();
-        }
-        else if (playerPosition > 0 && !facingRight)
-        {
-            Flip();
+            float playerPosition = player.position.x - transform.position.x;
+            if (playerPosition < 0 && facingRight)
+            {
+                Flip();
+            }
+            else if (playerPosition > 0 && !facingRight)
+            {
+                Flip();
+            }
         }
     }
 

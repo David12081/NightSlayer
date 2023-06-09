@@ -34,6 +34,7 @@ public class ButtonScript : MonoBehaviour
 
     public void NewGameButton()
     {
+        PlayerPrefs.SetInt("GameScore", 0);
         FindObjectOfType<AudioManager>().Play("SpookyGong");
     }
 

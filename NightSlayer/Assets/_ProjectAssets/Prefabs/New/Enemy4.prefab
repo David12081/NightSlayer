@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6035817759682470871
 Transform:
   m_ObjectHideFlags: 0
@@ -166,13 +166,14 @@ MonoBehaviour:
   deathBloodParticle: {fileID: 5096148057906189823, guid: 4a122dcc68153794295f6953dd91521e, type: 3}
   minScore: 500
   maxScore: 601
-  speed: 5
-  stoppingDistance: 11
-  retreatDistance: 10
+  speed: 3.5
+  stoppingDistance: 9
+  retreatDistance: 8
   startTimeBtwShots: 2
   projectile: {fileID: 1364300949709301252, guid: 16a5f32cfcc3af345b732cc85efeb00d, type: 3}
   rb: {fileID: 1991748544658529173}
   spriteRenderer: {fileID: 8304074462497289609}
+  anim: {fileID: 172226917556446168}
 --- !u!114 &7264927337557457237
 MonoBehaviour:
   m_ObjectHideFlags: 0

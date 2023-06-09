@@ -7,6 +7,7 @@ public class Enemy4Projectile : MonoBehaviour
     [Header("Other")]
     [SerializeField] float speed;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] GameObject destroyedParticles;
     Transform player;
     Vector2 target;
 
@@ -52,6 +53,7 @@ public class Enemy4Projectile : MonoBehaviour
 
     void DestroyProjectile()
     {
+        Instantiate(destroyedParticles, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

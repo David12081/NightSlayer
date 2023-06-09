@@ -15,7 +15,6 @@ public class FinalRoom : MonoBehaviour
     [SerializeField] List<GameObject> doors;
 
     [SerializeField] GameObject teleporter;
-    [SerializeField] Transform teleporterSpawnPos;
 
     bool enemiesSpawned;
 
@@ -23,6 +22,7 @@ public class FinalRoom : MonoBehaviour
     {
         OpenDoors();
         enemiesSpawned = false;
+        teleporter.SetActive(false);
     }
 
     private void Update()
@@ -42,7 +42,7 @@ public class FinalRoom : MonoBehaviour
             {
                 OpenDoors();
                 FindObjectOfType<AudioManager>().ChangeMusic(audioClip1);
-                //Instantiate(teleporter, teleporterSpawnPos.position, Quaternion.identity);
+                teleporter.SetActive(true);
                 Destroy(this.gameObject);
             }
         }

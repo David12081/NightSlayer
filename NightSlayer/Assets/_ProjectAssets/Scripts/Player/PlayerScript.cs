@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private StateMachine meleeStateMachine;
     [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private PlayerHealth playerHealth;
     private InputAction attackAction;
     [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_jumpForce = 7.5f;
@@ -121,10 +122,12 @@ public class PlayerScript : MonoBehaviour
         if(value.started)
         {
             m_shielding = true;
+            playerHealth.Invincible = true;
         }
         else if(value.performed)
         {
             m_shielding = false;
+            playerHealth.Invincible = false;
         }
     }
 
