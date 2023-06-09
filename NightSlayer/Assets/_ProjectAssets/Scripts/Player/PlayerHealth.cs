@@ -58,6 +58,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 Instantiate(playerDummy, this.gameObject.transform.position, Quaternion.identity);
                 CinemachineShake.Instance.ShakeCamera(2f, 0.5f);
+                FindObjectOfType<AudioManager>().music.Stop();
                 Destroy(this.gameObject, 0.25f);
             }
         }

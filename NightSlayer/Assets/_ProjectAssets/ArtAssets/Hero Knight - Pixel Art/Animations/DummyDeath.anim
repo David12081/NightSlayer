@@ -39,7 +39,7 @@ AnimationClip:
       value: {fileID: 21300112, guid: ae297123f091bbf4e8f1835eb98fb293, type: 3}
     - time: 1.3
       value: {fileID: 21300114, guid: ae297123f091bbf4e8f1835eb98fb293, type: 3}
-    - time: 4
+    - time: 3
       value: {fileID: 21300114, guid: ae297123f091bbf4e8f1835eb98fb293, type: 3}
     attribute: m_Sprite
     path: 
@@ -76,7 +76,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 4.1
+    m_StopTime: 3.1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -96,8 +96,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 4
-    functionName: ChangeScene
+  - time: 3
+    functionName: SpawnGameOver
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
