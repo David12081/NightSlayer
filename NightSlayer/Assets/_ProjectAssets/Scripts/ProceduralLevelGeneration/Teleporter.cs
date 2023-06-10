@@ -6,15 +6,9 @@ using UnityEngine.SceneManagement;
 public class Teleporter : MonoBehaviour
 {
     [SerializeField] Animator anim;
-    [SerializeField] string[] scenes;
-    int nextSceneIndex;
+    [SerializeField] string scene;
     private bool playerOnPlatform;
     private PlayerScript playerScript;
-
-    private void Start()
-    {
-        int nextSceneIndex = Random.Range(0, scenes.Length);
-    }
 
     private void Update()
     {
@@ -40,7 +34,7 @@ public class Teleporter : MonoBehaviour
     IEnumerator LoadScene()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(scenes[nextSceneIndex]);
+        SceneManager.LoadScene(scene);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
